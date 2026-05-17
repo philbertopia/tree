@@ -1,0 +1,110 @@
+<h2>Section Style — Scroll Rhythm</h2>
+<p class="subtitle">How should content sections feel as you scroll past the hero? This sets the tone for services, industries, tools — everything.</p>
+
+<div class="cards">
+
+  <!-- Option A: Spacious, minimal -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#050505;padding:20px;font-family:'Inter',sans-serif;min-height:260px;border:1px solid #111;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;gap:14px;">
+      <!-- Section label + title -->
+      <div>
+        <div style="color:#374151;font-size:7px;letter-spacing:4px;text-transform:uppercase;margin-bottom:6px;">Services</div>
+        <div style="color:#f9fafb;font-size:18px;font-weight:800;letter-spacing:-0.5px;line-height:1.1;">Systems that grow<br/>with your business.</div>
+      </div>
+      <!-- Cards: generous spacing, minimal borders -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;flex:1;">
+        <div style="padding:12px;border:1px solid #111;border-radius:6px;background:#080808;">
+          <div style="color:#4ade80;font-size:8px;margin-bottom:4px;">AI Automation</div>
+          <div style="color:#374151;font-size:7px;line-height:1.5;">End-to-end workflows that run without constant attention.</div>
+        </div>
+        <div style="padding:12px;border:1px solid #111;border-radius:6px;background:#080808;">
+          <div style="color:#4ade80;font-size:8px;margin-bottom:4px;">AI Agents & LLMs</div>
+          <div style="color:#374151;font-size:7px;line-height:1.5;">Custom language model pipelines for real tasks.</div>
+        </div>
+        <div style="padding:12px;border:1px solid #111;border-radius:6px;background:#080808;">
+          <div style="color:#a78bfa;font-size:8px;margin-bottom:4px;">SEO & Search</div>
+          <div style="color:#374151;font-size:7px;line-height:1.5;">Content and technical strategy that compounds over time.</div>
+        </div>
+        <div style="padding:12px;border:1px solid #111;border-radius:6px;background:#080808;">
+          <div style="color:#a78bfa;font-size:8px;margin-bottom:4px;">Security Workflows</div>
+          <div style="color:#374151;font-size:7px;line-height:1.5;">Automated scanning, alerts, and response flows.</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Sparse &amp; Refined</h3>
+      <p>Lots of negative space, thin borders, muted text. Sections breathe. Feels like a high-end studio or research lab.</p>
+    </div>
+  </div>
+
+  <!-- Option B: Glass panels, more texture -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#060608;padding:20px;font-family:'Inter',sans-serif;min-height:260px;border:1px solid #111;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;gap:14px;">
+      <div>
+        <div style="color:#4ade80;font-size:7px;letter-spacing:4px;text-transform:uppercase;margin-bottom:6px;">Services</div>
+        <div style="color:#f9fafb;font-size:18px;font-weight:800;letter-spacing:-0.5px;line-height:1.1;">Systems that grow<br/>with your business.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;flex:1;">
+        <div style="padding:12px;border:1px solid rgba(74,222,128,0.15);border-radius:8px;background:rgba(74,222,128,0.04);backdrop-filter:blur(8px);">
+          <div style="color:#4ade80;font-size:8px;margin-bottom:4px;">⬡ AI Automation</div>
+          <div style="color:#6b7280;font-size:7px;line-height:1.5;">End-to-end workflows that run without constant attention.</div>
+        </div>
+        <div style="padding:12px;border:1px solid rgba(74,222,128,0.15);border-radius:8px;background:rgba(74,222,128,0.04);">
+          <div style="color:#4ade80;font-size:8px;margin-bottom:4px;">⬡ AI Agents & LLMs</div>
+          <div style="color:#6b7280;font-size:7px;line-height:1.5;">Custom language model pipelines for real tasks.</div>
+        </div>
+        <div style="padding:12px;border:1px solid rgba(139,92,246,0.15);border-radius:8px;background:rgba(139,92,246,0.04);">
+          <div style="color:#a78bfa;font-size:8px;margin-bottom:4px;">⬡ SEO & Search</div>
+          <div style="color:#6b7280;font-size:7px;line-height:1.5;">Content and technical strategy that compounds over time.</div>
+        </div>
+        <div style="padding:12px;border:1px solid rgba(139,92,246,0.15);border-radius:8px;background:rgba(139,92,246,0.04);">
+          <div style="color:#a78bfa;font-size:8px;margin-bottom:4px;">⬡ Security Workflows</div>
+          <div style="color:#6b7280;font-size:7px;line-height:1.5;">Automated scanning, alerts, and response flows.</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Glass + Glow</h3>
+      <p>Glassmorphism panels with green and purple tinted borders. More visual texture and depth. Futuristic, tactile, slightly sci-fi.</p>
+    </div>
+  </div>
+
+  <!-- Option C: Large type, editorial -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#050505;padding:20px;font-family:'Inter',sans-serif;min-height:260px;border:1px solid #111;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;gap:10px;">
+      <div>
+        <div style="color:#374151;font-size:7px;letter-spacing:4px;text-transform:uppercase;margin-bottom:6px;">Services</div>
+        <div style="color:#f9fafb;font-size:18px;font-weight:800;letter-spacing:-0.5px;line-height:1.1;margin-bottom:8px;">Systems that grow<br/>with your business.</div>
+        <div style="height:1px;background:#111;margin-bottom:10px;"></div>
+      </div>
+      <!-- List style, editorial -->
+      <div style="display:flex;flex-direction:column;gap:0;">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;padding:8px 0;border-bottom:1px solid #111;">
+          <div style="color:#f9fafb;font-size:10px;font-weight:600;">AI Automation Systems</div>
+          <div style="color:#4ade80;font-size:7px;">→</div>
+        </div>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;padding:8px 0;border-bottom:1px solid #111;">
+          <div style="color:#f9fafb;font-size:10px;font-weight:600;">AI Agents & LLM Workflows</div>
+          <div style="color:#4ade80;font-size:7px;">→</div>
+        </div>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;padding:8px 0;border-bottom:1px solid #111;">
+          <div style="color:#f9fafb;font-size:10px;font-weight:600;">SEO & Search Strategy</div>
+          <div style="color:#a78bfa;font-size:7px;">→</div>
+        </div>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;padding:8px 0;border-bottom:1px solid #111;">
+          <div style="color:#f9fafb;font-size:10px;font-weight:600;">Security Workflows</div>
+          <div style="color:#a78bfa;font-size:7px;">→</div>
+        </div>
+        <div style="display:flex;align-items:baseline;justify-content:space-between;padding:8px 0;border-bottom:1px solid #0d0d0d;color:#374151;">
+          <div style="font-size:10px;">+ 11 more services</div>
+          <div style="font-size:7px;color:#4ade80;">View all →</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Editorial List</h3>
+      <p>Magazine/agency style: services as a clean ruled list with arrow accents. Confident, typographic, anti-template. Sections alternate between list and grid layouts.</p>
+    </div>
+  </div>
+
+</div>

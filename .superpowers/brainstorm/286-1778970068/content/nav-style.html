@@ -1,0 +1,73 @@
+<h2>Navigation Style</h2>
+<p class="subtitle">The nav sits on every page. How minimal or structured should it be?</p>
+
+<div class="cards">
+
+  <!-- Option A: Full horizontal, glass pill -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#050505;font-family:'Inter',sans-serif;min-height:80px;border:1px solid #111;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:0;">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-bottom:1px solid #0d0d0d;">
+        <div style="color:#4ade80;font-size:13px;font-weight:800;letter-spacing:2px;">TREE</div>
+        <div style="display:flex;gap:20px;align-items:center;">
+          <div style="color:#6b7280;font-size:9px;letter-spacing:.5px;">Services</div>
+          <div style="color:#6b7280;font-size:9px;letter-spacing:.5px;">Industries</div>
+          <div style="color:#6b7280;font-size:9px;letter-spacing:.5px;">Tools</div>
+          <div style="color:#6b7280;font-size:9px;letter-spacing:.5px;">About</div>
+          <div style="background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.25);color:#4ade80;font-size:9px;padding:5px 12px;border-radius:20px;letter-spacing:.5px;">Consult →</div>
+        </div>
+      </div>
+      <div style="padding:30px 24px;text-align:center;color:#1f2937;font-size:8px;letter-spacing:2px;">— page content below —</div>
+    </div>
+    <div class="card-body">
+      <h3>A — Full Nav + Glass CTA</h3>
+      <p>All links visible. "Consult" as a soft glass pill button on the right. Transparent background that darkens on scroll. Clean and accessible.</p>
+    </div>
+  </div>
+
+  <!-- Option B: Logo + hamburger only -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#050505;font-family:'Inter',sans-serif;min-height:80px;border:1px solid #111;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:0;">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-bottom:1px solid #0d0d0d;">
+        <div style="color:#4ade80;font-size:13px;font-weight:800;letter-spacing:2px;">TREE</div>
+        <div style="display:flex;gap:16px;align-items:center;">
+          <div style="color:#374151;font-size:8px;letter-spacing:2px;">MENU</div>
+          <div style="display:flex;flex-direction:column;gap:3px;cursor:pointer;">
+            <div style="width:18px;height:1px;background:#4ade80;"></div>
+            <div style="width:12px;height:1px;background:#4ade80;"></div>
+          </div>
+        </div>
+      </div>
+      <div style="padding:30px 24px;text-align:center;color:#1f2937;font-size:8px;letter-spacing:2px;">— page content below —</div>
+    </div>
+    <div class="card-body">
+      <h3>B — Logo + Hamburger Only</h3>
+      <p>Maximally minimal. Logo left, "MENU" + hamburger icon right. Full-screen overlay opens on click. Most art-directed, most experimental.</p>
+    </div>
+  </div>
+
+  <!-- Option C: Logo + links + solid CTA -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#050505;font-family:'Inter',sans-serif;min-height:80px;border:1px solid #111;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:0;">
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-bottom:1px solid rgba(74,222,128,0.08);">
+        <div style="display:flex;align-items:center;gap:24px;">
+          <div style="color:#4ade80;font-size:13px;font-weight:800;letter-spacing:2px;">TREE</div>
+          <div style="width:1px;height:14px;background:#111;"></div>
+          <div style="display:flex;gap:16px;">
+            <div style="color:#6b7280;font-size:9px;">Services</div>
+            <div style="color:#6b7280;font-size:9px;">Industries</div>
+            <div style="color:#6b7280;font-size:9px;">Tools</div>
+            <div style="color:#6b7280;font-size:9px;">Portfolio</div>
+            <div style="color:#6b7280;font-size:9px;">About</div>
+          </div>
+        </div>
+        <div style="background:#4ade80;color:#000;font-size:9px;padding:6px 14px;border-radius:4px;font-weight:700;letter-spacing:.5px;">Free Consultation</div>
+      </div>
+      <div style="padding:30px 24px;text-align:center;color:#1f2937;font-size:8px;letter-spacing:2px;">— page content below —</div>
+    </div>
+    <div class="card-body">
+      <h3>C — Full Nav + Solid CTA</h3>
+      <p>Logo and links grouped left with a divider. Solid green "Free Consultation" button hard right. More conventional but highly clear and conversion-friendly.</p>
+    </div>
+  </div>
+
+</div>
