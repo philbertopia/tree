@@ -9,7 +9,7 @@ export function TrainingSection() {
         <SectionHeading
           eyebrow="TREE Training"
           title="You don't need to become a programmer. You need to understand your system."
-          description="TREE doesn't just build and disappear. We teach clients how to use what we build, and how to safely prompt, test, review, and deploy AI-assisted changes on their own."
+          description="TREE doesn't just build and disappear. We train and consult with business owners, teams, and individuals so they can use AI systems confidently, safely prompt and review outputs, and make better decisions with the tools around them."
         />
         <GlassCard tone="violet" className="grid gap-4">
           {trainingItems.map((item) => {

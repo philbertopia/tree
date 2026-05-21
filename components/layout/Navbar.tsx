@@ -24,6 +24,15 @@ export function Navbar() {
     };
   }, [open]);
 
+  useEffect(() => {
+    const onResize = () => {
+      if (window.innerWidth >= 768) setOpen(false);
+    };
+
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
   return (
     <header
       className={cn(
@@ -37,11 +46,11 @@ export function Navbar() {
       >
         Skip to main content
       </a>
-      <nav className="container-shell flex h-20 items-center justify-between" aria-label="Primary navigation">
-        <Link href="/" className="text-lg font-black tracking-[0.3em] text-tree-green">
+      <nav className="container-shell flex h-20 items-center justify-between gap-4" aria-label="Primary navigation">
+        <Link href="/" className="shrink-0 text-lg font-black tracking-[0.3em] text-tree-green">
           TREE
         </Link>
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden min-w-0 items-center gap-6 md:flex lg:gap-8">
           {navItems.map((item) => (
             <Link key={item.href} href={item.href} className="text-sm text-gray-400 transition hover:text-white">
               {item.label}
@@ -56,36 +65,24 @@ export function Navbar() {
         </div>
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-tree-green md:hidden"
-          onClick={() => setOpen(true)}
-          aria-label="Open navigation"
+          className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-tree-green transition hover:border-tree-green/30 hover:bg-tree-green/10 md:hidden"
+          onClick={() => setOpen((current) => !current)}
+          aria-label={open ? "Close navigation" : "Open navigation"}
+          aria-expanded={open}
         >
-          <Menu className="h-5 w-5" />
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </nav>
 
       {open ? (
-        <div className="fixed inset-0 z-[75] bg-tree-black/95 p-6 backdrop-blur-xl md:hidden">
-          <div className="flex items-center justify-between">
-            <Link href="/" onClick={() => setOpen(false)} className="font-black tracking-[0.3em] text-tree-green">
-              TREE
-            </Link>
-            <button
-              type="button"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-white"
-              onClick={() => setOpen(false)}
-              aria-label="Close navigation"
-            >
-              <X className="h-5 w-5" />
-            </button>
-          </div>
-          <div className="mt-20 grid gap-6 text-center">
+        <div className="container-shell pb-4 md:hidden">
+          <div className="rounded-2xl border border-white/10 bg-tree-black/95 p-3 shadow-2xl shadow-black/40 backdrop-blur-xl">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="text-4xl font-black tracking-tight text-white"
+                className="flex min-h-12 items-center rounded-xl px-4 text-base font-semibold text-gray-200 transition hover:bg-white/[0.05] hover:text-white"
               >
                 {item.label}
               </Link>
@@ -93,7 +90,7 @@ export function Navbar() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="mx-auto mt-6 rounded-full bg-tree-green px-6 py-3 font-bold text-black"
+              className="mt-2 flex min-h-12 items-center justify-center rounded-xl bg-tree-green px-4 font-bold text-black transition hover:bg-tree-leaf"
             >
               Get a Free Consultation
             </Link>

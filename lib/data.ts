@@ -4,11 +4,14 @@ import {
   Banknote,
   Bot,
   BrainCircuit,
+  BriefcaseBusiness,
   Building2,
+  CalendarCheck,
   ChartNoAxesCombined,
   CheckCircle2,
   Code2,
   Coins,
+  Dumbbell,
   FileSearch,
   Globe2,
   GraduationCap,
@@ -23,11 +26,14 @@ import {
   MessageSquareText,
   MonitorSmartphone,
   PlaySquare,
+  ShieldAlert,
   Scale,
   Search,
   ShieldCheck,
   ShoppingBag,
+  Smartphone,
   Store,
+  Truck,
   Utensils,
   WalletCards,
   Workflow,
@@ -45,6 +51,7 @@ export interface FeatureCard {
   description: string;
   icon: LucideIcon;
   tone?: "green" | "violet";
+  group?: string;
 }
 
 export interface WorkflowStep {
@@ -149,25 +156,36 @@ export const tools: ToolItem[] = [
 ];
 
 export const industries: FeatureCard[] = [
-  { title: "Food Trucks", description: "Local SEO, menu updates, QR campaigns, and social automation.", icon: Utensils },
-  { title: "Restaurants", description: "Reservation flows, review responses, and content engines.", icon: Store },
-  { title: "Local Shops", description: "Inventory alerts, loyalty automation, and local search.", icon: ShoppingBag },
-  { title: "Online Businesses", description: "Funnel automation, product feeds, and support agents.", icon: Globe2 },
-  { title: "Law Firms", description: "Intake automation, document sorting, and FAQ chatbots.", icon: Scale },
-  { title: "Healthcare Offices", description: "Patient education, admin workflows, and content systems.", icon: HeartPulse },
-  { title: "Financial Institutions", description: "Reporting automation, compliance alerts, and research tools.", icon: Landmark, tone: "violet" },
-  { title: "Banks", description: "Internal workflow automation and document processing.", icon: Building2, tone: "violet" },
-  { title: "Hedge Funds", description: "Research agents, signal dashboards, and portfolio reporting.", icon: ChartNoAxesCombined, tone: "violet" },
-  { title: "Creators", description: "Content pipelines, audience automation, and monetization tools.", icon: AudioLines },
-  { title: "YouTube Channels", description: "Script research, thumbnail automation, and publish scheduling.", icon: PlaySquare },
-  { title: "Real Estate", description: "Listing automation, lead qualification, and market research.", icon: Home },
-  { title: "Agencies", description: "White-label AI systems, client reporting, and workflow tooling.", icon: BrainCircuit, tone: "violet" },
-  { title: "Blockchain Projects", description: "Launch content, community automation, and smart contract tooling.", icon: Coins, tone: "violet" },
-  { title: "Nonprofits", description: "Grant research, donor outreach, and content automation.", icon: FileSearch }
+  { title: "Food Trucks", description: "Local SEO, menu updates, QR campaigns, and social automation.", icon: Utensils, group: "Local Business" },
+  { title: "Restaurants", description: "Reservation flows, review responses, and content engines.", icon: Store, group: "Local Business" },
+  { title: "Local Shops", description: "Inventory alerts, loyalty automation, and local search.", icon: ShoppingBag, group: "Local Business" },
+  { title: "Small Business Owners", description: "Business development systems, lead tracking, financial visibility, and owner training.", icon: BriefcaseBusiness, group: "Local Business" },
+  { title: "Construction / Contractors", description: "Quote workflows, job scheduling, customer updates, invoice tracking, and project dashboards.", icon: Truck, group: "Local Business" },
+  { title: "Gyms / Wellness Businesses", description: "Member communication, habit tracking, class scheduling, content automation, and retention workflows.", icon: Dumbbell, group: "Local Business" },
+  { title: "Law Firms", description: "Intake automation, document sorting, and FAQ chatbots.", icon: Scale, group: "Professional Services" },
+  { title: "Healthcare Offices", description: "Patient education, admin workflows, and content systems.", icon: HeartPulse, group: "Professional Services" },
+  { title: "Real Estate", description: "Listing automation, lead qualification, and market research.", icon: Home, group: "Professional Services" },
+  { title: "Consultants / Coaches", description: "Client intake, content systems, scheduling, CRM workflows, course delivery, and follow-up automation.", icon: CalendarCheck, group: "Professional Services" },
+  { title: "Financial Institutions", description: "Reporting automation, compliance alerts, and research tools.", icon: Landmark, tone: "violet", group: "Finance & Security" },
+  { title: "Banks", description: "Internal workflow automation and document processing.", icon: Building2, tone: "violet", group: "Finance & Security" },
+  { title: "Hedge Funds", description: "Research agents, signal dashboards, and portfolio reporting.", icon: ChartNoAxesCombined, tone: "violet", group: "Finance & Security" },
+  { title: "Financial Advisors", description: "Client education, document workflows, research dashboards, compliance-aware content, and meeting prep.", icon: Banknote, tone: "violet", group: "Finance & Security" },
+  { title: "Traders / Investors", description: "Market research agents, signal dashboards, risk alerts, backtesting workflows, and portfolio visibility.", icon: LineChart, tone: "violet", group: "Finance & Security" },
+  { title: "Security / Private Properties", description: "Camera workflows, access alerts, incident review, drone or robot-assisted monitoring, and response automation.", icon: ShieldAlert, tone: "violet", group: "Finance & Security" },
+  { title: "Security Companies", description: "Dispatch workflows, camera review, incident reports, client dashboards, and monitoring automation.", icon: ShieldCheck, tone: "violet", group: "Finance & Security" },
+  { title: "Online Businesses", description: "Funnel automation, product feeds, and support agents.", icon: Globe2, group: "Creators & Digital" },
+  { title: "Creators", description: "Content pipelines, audience automation, and monetization tools.", icon: AudioLines, group: "Creators & Digital" },
+  { title: "YouTube Channels", description: "Script research, thumbnail automation, and publish scheduling.", icon: PlaySquare, group: "Creators & Digital" },
+  { title: "Agencies", description: "White-label AI systems, client reporting, and workflow tooling.", icon: BrainCircuit, tone: "violet", group: "Creators & Digital" },
+  { title: "Blockchain Projects", description: "Launch content, community automation, and smart contract tooling.", icon: Coins, tone: "violet", group: "Creators & Digital" },
+  { title: "Individuals / Personal Systems", description: "Personal dashboards, finance tracking, AI assistants, health routines, and productivity automation.", icon: Smartphone, tone: "violet", group: "Individuals & Training" },
+  { title: "Education / Training Programs", description: "Curriculum tools, student support assistants, lesson planning, progress dashboards, and AI literacy training.", icon: GraduationCap, tone: "violet", group: "Individuals & Training" },
+  { title: "Nonprofits", description: "Grant research, donor outreach, and content automation.", icon: FileSearch, group: "Individuals & Training" }
 ];
 
 export const trainingItems = [
-  "Practical AI literacy for business owners and teams",
+  "Practical AI literacy for business owners, teams, and individuals",
+  "Consultation for owners and individuals choosing where AI actually fits",
   "How to prompt, test, and review AI outputs safely",
   "Vibe coding with guardrails for content, workflows, and internal tools",
   "Understanding what your automation is doing and when to override it",
@@ -177,21 +195,21 @@ export const trainingItems = [
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "We had no idea where to start with AI. TREE audited our whole operation, told us what actually made sense to automate, and built it.",
-    name: "Operations Director",
-    role: "Regional Law Firm"
-  },
-  {
-    quote:
       "TREE set up our social automation and local SEO system in two weeks. The training was just as valuable as the build.",
     name: "Owner",
     role: "Hylander Mobile Food Cart"
   },
   {
     quote:
-      "What I appreciated most was the honesty. They told us three ideas were a waste of money, then built the things that mattered.",
-    name: "CTO",
-    role: "Independent Research Fund"
+      "AI, automation, security, and finance systems need clear visibility, strong review points, and practical implementation.",
+    name: "Client Work",
+    role: "Chase Bank"
+  },
+  {
+    quote:
+      "TREE supports financial and business development workflows with consultation, training, dashboards, and automation planning.",
+    name: "Client Work",
+    role: "Northwestern Mutual"
   }
 ];
 

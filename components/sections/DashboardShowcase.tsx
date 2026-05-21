@@ -1,7 +1,7 @@
 "use client";
 
 import { Bar, BarChart, Cell, Line, LineChart, RadialBar, RadialBarChart, ResponsiveContainer, Tooltip, XAxis } from "recharts";
-import { Activity, AlertTriangle, CheckCircle2, Clock, FileText, ShieldAlert } from "lucide-react";
+import { Activity, Banknote, BriefcaseBusiness, CheckCircle2, HeartPulse, ShieldAlert } from "lucide-react";
 import { dashboardData } from "@/lib/data";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -12,18 +12,18 @@ export function DashboardShowcase() {
       <div className="container-shell">
         <SectionHeading
           eyebrow="Dashboard showcase"
-          title="Mock operations panels for AI systems that stay accountable."
-          description="These are sample metrics, but the pattern is real: every automation needs visibility, approval, and a way for humans to steer."
+          title="Operational visibility for businesses, individuals, and AI-powered systems."
+          description="TREE builds dashboards, automations, and decision systems that help people see what matters, act faster, and stay in control across business development, finance, security, health, and personal productivity."
         />
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          <MetricCard title="AI Agent Activity" metric="42 tasks automated this week" icon={Activity}>
+          <MetricCard title="AI System Activity" metric="42 tasks routed with human review" icon={Activity}>
             <ResponsiveContainer width="100%" height={120}>
               <BarChart data={dashboardData}>
                 <Bar dataKey="tasks" fill="#4ade80" radius={[6, 6, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </MetricCard>
-          <MetricCard title="SEO Growth" metric="18 pages generated for review" icon={FileText}>
+          <MetricCard title="Business Development" metric="18 growth actions ready for review" icon={BriefcaseBusiness}>
             <ResponsiveContainer width="100%" height={120}>
               <LineChart data={dashboardData}>
                 <Line type="monotone" dataKey="seo" stroke="#a78bfa" strokeWidth={3} dot={false} />
@@ -31,10 +31,10 @@ export function DashboardShowcase() {
               </LineChart>
             </ResponsiveContainer>
           </MetricCard>
-          <MetricCard title="Social Queue" metric="24 posts scheduled" icon={Clock}>
-            <StatusList items={["8 waiting for review", "11 scheduled", "5 published today"]} />
+          <MetricCard title="Finance Automation" metric="24 transactions categorized" icon={Banknote}>
+            <StatusList items={["8 cash-flow checks queued", "11 reports updated", "5 alerts ready for approval"]} />
           </MetricCard>
-          <MetricCard title="Lead Pipeline" metric="12 leads captured" icon={CheckCircle2}>
+          <MetricCard title="Decision Pipeline" metric="12 opportunities prioritized" icon={CheckCircle2}>
             <ResponsiveContainer width="100%" height={120}>
               <BarChart data={dashboardData}>
                 <XAxis dataKey="name" tick={{ fill: "#6b7280", fontSize: 10 }} axisLine={false} tickLine={false} />
@@ -42,10 +42,10 @@ export function DashboardShowcase() {
               </BarChart>
             </ResponsiveContainer>
           </MetricCard>
-          <MetricCard title="Risk / Security Scan" metric="3 risks flagged" icon={ShieldAlert}>
-            <StatusList items={["1 high-priority approval", "2 medium alerts", "0 exposed secrets"]} tone="violet" />
+          <MetricCard title="Security Monitoring" metric="3 risks flagged for review" icon={ShieldAlert}>
+            <StatusList items={["1 camera or sensor event", "2 medium-priority alerts", "0 exposed secrets"]} tone="violet" />
           </MetricCard>
-          <MetricCard title="Workflow Approval" metric="91% approval accuracy" icon={AlertTriangle}>
+          <MetricCard title="Health / Personal Systems" metric="91% habit and workflow consistency" icon={HeartPulse}>
             <ResponsiveContainer width="100%" height={120}>
               <RadialBarChart innerRadius="62%" outerRadius="95%" data={[{ name: "approval", value: 91 }]}>
                 <RadialBar dataKey="value" cornerRadius={10}>

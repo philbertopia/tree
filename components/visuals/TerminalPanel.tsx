@@ -27,12 +27,12 @@ export function TerminalPanel() {
   }, []);
 
   return (
-    <GlassCard className="min-h-[420px] overflow-hidden bg-black/45 font-mono" aria-label="Fake terminal panel">
+    <GlassCard className="h-[460px] overflow-hidden bg-black/45 font-mono" aria-label="Terminal panel">
       <div className="mb-5 flex items-center justify-between border-b border-white/10 pb-4">
         <span className="text-xs font-bold uppercase tracking-[0.25em] text-tree-green">TREE Agent v1.0</span>
         <span className="h-2 w-2 rounded-full bg-tree-green shadow-glow" />
       </div>
-      <div className="space-y-3 text-sm leading-6 text-gray-400">
+      <div className="h-[350px] overflow-hidden space-y-3 text-sm leading-6 text-gray-400">
         {visibleLines.map((line, index) => (
           <p key={`${line}-${index}`} className={line.startsWith("$") ? "text-white" : "text-tree-green/80"}>
             {line}

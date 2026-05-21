@@ -31,7 +31,7 @@ export function ChatbotMockup() {
   }, []);
 
   return (
-    <GlassCard tone="violet" className="min-h-[420px]">
+    <GlassCard tone="violet" className="h-[460px] overflow-hidden">
       <div className="mb-5 flex items-center justify-between border-b border-white/10 pb-4">
         <div className="flex items-center gap-3">
           <span className="grid h-10 w-10 place-items-center rounded-full bg-tree-violet/15 text-tree-violet">
@@ -44,7 +44,7 @@ export function ChatbotMockup() {
         </div>
         <span className="h-2 w-2 rounded-full bg-tree-green" />
       </div>
-      <div className="space-y-4">
+      <div className="h-[350px] overflow-hidden space-y-4">
         {messages.slice(0, count).map((message, index) => (
           <div key={index} className={message.from === "user" ? "flex justify-end" : "flex justify-start"}>
             <div
