@@ -30,7 +30,7 @@ export function Hero() {
           Branching Intelligence for Real Businesses.
         </h1>
         <p className="mx-auto mt-7 max-w-2xl text-lg leading-8 text-gray-400 md:text-xl">
-          TREE designs, builds, and teaches practical AI systems for businesses that want automation without the hype.
+          Custom AI automation, dashboards, training, and consulting for businesses and individuals.
         </p>
         <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <CTAButton href="/contact">Get a Free Consultation</CTAButton>

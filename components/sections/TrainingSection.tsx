@@ -8,10 +8,13 @@ export function TrainingSection() {
       <div className="container-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <SectionHeading
           eyebrow="TREE Training"
-          title="You don't need to become a programmer. You need to understand your system."
-          description="TREE doesn't just build and disappear. We train and consult with business owners, teams, and individuals so they can use AI systems confidently, safely prompt and review outputs, and make better decisions with the tools around them."
+          title="You don't need to become a programmer. You only need to know what you need to know to run your system."
+          description="TREE doesn't just build and disappear. We train and consult with business owners, teams, and individuals so they can understand the AI systems around them, use them confidently, and know when to approve, pause, edit, or override the automation."
         />
-        <GlassCard tone="violet" className="grid gap-4">
+        <p className="max-w-2xl text-base leading-8 text-gray-400 md:text-lg lg:col-start-1">
+          You do not need to learn everything about AI. You need practical literacy: how your system works, what it can safely do, what it should never do without you, and how to make smart changes without breaking the workflow.
+        </p>
+        <GlassCard tone="violet" className="grid gap-4 lg:col-start-2 lg:row-span-2 lg:row-start-1">
           {trainingItems.map((item) => {
             const Icon = item.icon;
             return (

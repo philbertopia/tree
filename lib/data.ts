@@ -70,6 +70,31 @@ export interface Testimonial {
   role: string;
 }
 
+export interface ServicePackage {
+  title: string;
+  description: string;
+  audience: string;
+  price: string;
+  icon: LucideIcon;
+  tone?: "green" | "violet";
+}
+
+export interface AudienceCard {
+  title: string;
+  description: string;
+  icon: LucideIcon;
+  tone?: "green" | "violet";
+}
+
+export interface CaseStudyCard {
+  title: string;
+  problem: string;
+  system: string;
+  outcome: string;
+  icon: LucideIcon;
+  tone?: "green" | "violet";
+}
+
 export const navItems: NavItem[] = [
   { label: "Services", href: "/#services" },
   { label: "Industries", href: "/#industries" },
@@ -117,6 +142,102 @@ export const services: FeatureCard[] = [
   { title: "AI Training & Vibe Coding", description: "Learn to use AI tools safely and practically.", icon: GraduationCap, tone: "violet" },
   { title: "Local LLM Setup", description: "Private AI workflows that can run close to your data.", icon: LockKeyhole, tone: "violet" },
   { title: "Custom Business Tools", description: "Bespoke internal apps built around how your team works.", icon: Wrench, tone: "violet" }
+];
+
+export const servicePackages: ServicePackage[] = [
+  {
+    title: "AI Consultation",
+    description: "Map what AI can actually improve, what should stay human, and where the first useful system should start.",
+    audience: "Owners, individuals, and teams deciding where AI fits",
+    price: "Custom scope",
+    icon: BrainCircuit
+  },
+  {
+    title: "Automation Build",
+    description: "Design and build workflows that move information, trigger actions, route approvals, and reduce repetitive work.",
+    audience: "Businesses with manual operations, follow-up, reporting, or intake bottlenecks",
+    price: "Custom scope",
+    icon: Workflow
+  },
+  {
+    title: "Dashboard/System Build",
+    description: "Create dashboards, internal tools, and operating panels that make tasks, metrics, risks, and decisions visible.",
+    audience: "Teams and individuals who need clarity across scattered systems",
+    price: "Custom scope",
+    icon: LayoutDashboard
+  },
+  {
+    title: "Security/Finance Systems",
+    description: "Build monitored workflows for financial visibility, risk alerts, camera or sensor events, and human-approved response paths.",
+    audience: "Finance, security, property, investment, and high-trust workflows",
+    price: "Custom scope",
+    icon: ShieldAlert,
+    tone: "violet"
+  },
+  {
+    title: "Training Program",
+    description: "Teach owners, teams, and individuals how to use, review, prompt, and safely improve the AI systems around them.",
+    audience: "People who want confidence without becoming programmers",
+    price: "Custom scope",
+    icon: GraduationCap,
+    tone: "violet"
+  }
+];
+
+export const audienceCards: AudienceCard[] = [
+  {
+    title: "Business Owners",
+    description: "Get visibility into operations, leads, finances, customer follow-up, and the next practical automation to build.",
+    icon: BriefcaseBusiness
+  },
+  {
+    title: "Individuals",
+    description: "Use AI for personal dashboards, productivity systems, finance tracking, health routines, learning, and decision support.",
+    icon: Smartphone,
+    tone: "violet"
+  },
+  {
+    title: "Finance/Security Clients",
+    description: "Build systems around alerts, approvals, reporting, risk review, camera events, and human-controlled response workflows.",
+    icon: ShieldAlert,
+    tone: "violet"
+  },
+  {
+    title: "Creators/Agencies",
+    description: "Organize research, content pipelines, client reporting, scheduling, publishing, and repeatable delivery systems.",
+    icon: AudioLines
+  },
+  {
+    title: "Local Businesses",
+    description: "Improve local SEO, reviews, menus, promotions, customer FAQs, bookings, inventory signals, and owner dashboards.",
+    icon: Store
+  }
+];
+
+export const caseStudyCards: CaseStudyCard[] = [
+  {
+    title: "Local business visibility system",
+    problem: "A local operator needs more visibility but does not have time to manage SEO, reviews, menus, social posts, and customer FAQs by hand.",
+    system: "TREE maps the customer journey, builds a dashboard, and connects review response, local SEO tasks, QR campaigns, and content approvals.",
+    outcome: "The owner gets a clearer weekly operating rhythm and a system that shows what needs attention before it becomes another pile of tasks.",
+    icon: Store
+  },
+  {
+    title: "Finance/security dashboard system",
+    problem: "Important financial or security signals are spread across accounts, cameras, alerts, reports, and manual checklists.",
+    system: "TREE designs a monitored dashboard with risk flags, approval points, camera or sensor events, reporting views, and escalation steps.",
+    outcome: "The client can see what changed, what matters, and what needs human review without relying on memory or scattered notifications.",
+    icon: ShieldAlert,
+    tone: "violet"
+  },
+  {
+    title: "AI training and consultation system",
+    problem: "A business owner or individual wants AI help but does not know what to trust, what to automate, or how to safely use the tools.",
+    system: "TREE provides consultation, builds a practical starter system, and trains the person on prompting, review, guardrails, and safe changes.",
+    outcome: "The client learns only what they need to operate and improve their system, with confidence about when to approve, pause, or override it.",
+    icon: GraduationCap,
+    tone: "violet"
+  }
 ];
 
 export const tools: ToolItem[] = [
@@ -189,6 +310,7 @@ export const trainingItems = [
   "How to prompt, test, and review AI outputs safely",
   "Vibe coding with guardrails for content, workflows, and internal tools",
   "Understanding what your automation is doing and when to override it",
+  "Learning only what you need to operate, improve, and trust your system",
   "Keeping humans in control as AI systems grow"
 ].map((description) => ({ description, icon: CheckCircle2 }));
 
