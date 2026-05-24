@@ -46,7 +46,6 @@ export function CaseStudyCards() {
                       className="object-cover opacity-80"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-tree-black/75 via-transparent to-transparent" />
-                    <div className="image-node-glint" aria-hidden="true" />
                   </div>
                   <Icon className="mb-6 h-7 w-7 text-tree-green" aria-hidden="true" />
                   <h3 className="text-2xl font-bold text-white">{item.title}</h3>
