@@ -185,8 +185,8 @@ function buildPulsePaths(compact: boolean): PulsePath[] {
 }
 
 function buildCanopyNodes(centerX: number, compact: boolean): GlowNodeSpec[] {
-  const count = compact ? 12 : 22;
-  const upperCount = compact ? 9 : 18;
+  const count = compact ? 20 : 32;
+  const upperCount = compact ? 14 : 24;
   const nodes: GlowNodeSpec[] = [];
 
   for (let i = 0; i < count; i += 1) {
@@ -231,6 +231,33 @@ function buildCanopyNodes(centerX: number, compact: boolean): GlowNodeSpec[] {
       drift: [0.045 + (i % 5) * 0.01, 0.032 + (i % 4) * 0.008],
       speed: 0.5 + (i % 6) * 0.055,
       opacity: sizeStep === 0 ? 0.36 : 0.28
+    });
+  }
+
+  return nodes;
+}
+
+function buildScatterGlowNodes(centerX: number, compact: boolean): GlowNodeSpec[] {
+  const count = compact ? 10 : 20;
+  const nodes: GlowNodeSpec[] = [];
+
+  for (let i = 0; i < count; i += 1) {
+    const angle = (i / count) * Math.PI * 2 + i * 0.37;
+    const radius = 1.1 + (i % 5) * 0.34;
+    const xBias = compact ? 0 : centerX * 0.55;
+
+    nodes.push({
+      position: [
+        xBias + Math.cos(angle) * radius * (compact ? 1.1 : 1.7),
+        -0.6 + Math.sin(angle * 0.65) * (compact ? 0.85 : 1.3) + (i % 4) * 0.22,
+        -1.9 - (i % 5) * 0.24
+      ],
+      color: i % 5 === 0 ? VIOLET : i % 3 === 0 ? CYAN : GREEN,
+      size: i % 4 === 0 ? 0.052 : i % 3 === 0 ? 0.038 : 0.028,
+      phase: i * 0.77,
+      drift: [0.03 + (i % 4) * 0.008, 0.024 + (i % 3) * 0.006],
+      speed: 0.46 + (i % 6) * 0.042,
+      opacity: i % 4 === 0 ? 0.54 : 0.4
     });
   }
 
@@ -588,6 +615,7 @@ function AmbientRig({
   const centerX = compact ? 0 : 1.18;
   const pulsePaths = useMemo(() => buildPulsePaths(compact), [compact]);
   const canopyNodes = useMemo(() => buildCanopyNodes(centerX, compact), [centerX, compact]);
+  const scatterNodes = useMemo(() => buildScatterGlowNodes(centerX, compact), [centerX, compact]);
   const flowClusters = useMemo(() => buildFlowClusters(compact), [compact]);
 
   useFrame(({ clock, pointer }) => {
@@ -635,7 +663,10 @@ function AmbientRig({
           scrollProgress={scrollProgress}
         />
       ))}
-      {canopyNodes.slice(0, compact ? 6 : 10).map((node, index) => {
+      {scatterNodes.map((node, index) => (
+        <GlowNode key={`scatter-node-${index}`} node={node} reducedMotion={reducedMotion} scrollProgress={scrollProgress} />
+      ))}
+      {canopyNodes.slice(0, compact ? 12 : 20).map((node, index) => {
         const next = canopyNodes[(index * 3 + 5) % canopyNodes.length];
         return (
           <ConnectorGlint
@@ -662,16 +693,29 @@ function AmbientRig({
 export function HeroTreeCanvas() {
   const reducedMotion = usePrefersReducedMotion();
   const scrollProgress = useScrollProgressRef();
+  const [ready, setReady] = useState(false);
 
   return (
-    <Canvas
-      aria-hidden="true"
-      className="h-full w-full"
-      camera={{ position: [0, 0, 5.8], fov: 44 }}
-      dpr={[1, 1.2]}
-      gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}
+    <div
+      style={{
+        width: "100%",
+        height: "100%",
+        opacity: ready ? 1 : 0,
+        transition: "opacity 2s ease"
+      }}
     >
-      <AmbientRig reducedMotion={reducedMotion} scrollProgress={scrollProgress} />
-    </Canvas>
+      <Canvas
+        aria-hidden="true"
+        className="h-full w-full"
+        camera={{ position: [0, 0, 5.8], fov: 44 }}
+        dpr={[1, 1.2]}
+        gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}
+        onCreated={() => {
+          setTimeout(() => setReady(true), 200);
+        }}
+      >
+        <AmbientRig reducedMotion={reducedMotion} scrollProgress={scrollProgress} />
+      </Canvas>
+    </div>
   );
 }
