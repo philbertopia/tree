@@ -757,7 +757,7 @@ function ReadySignal({ onReady }: { onReady: () => void }) {
   useFrame(() => {
     if (fired.current) return;
     frame.current += 1;
-    if (frame.current >= 10) {
+    if (frame.current >= 20) {
       fired.current = true;
       onReady();
     }
@@ -777,7 +777,7 @@ export function HeroTreeCanvas() {
         width: "100%",
         height: "100%",
         opacity: ready ? 1 : 0,
-        transition: "opacity 2s ease"
+        transition: "opacity 5s linear"
       }}
     >
       <Canvas
