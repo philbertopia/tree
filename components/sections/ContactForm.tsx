@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { Bot, Mail, MessageCircle, UserRound } from "lucide-react";
+import { Bot, MessageCircle, UserRound } from "lucide-react";
 import { budgetRanges, businessTypes } from "@/lib/data";
 import { GlassCard } from "@/components/ui/GlassCard";
 
@@ -29,7 +29,7 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <GlassCard className="grid min-h-[520px] place-items-center text-center">
+      <GlassCard className="grid min-h-[340px] place-items-center text-center md:min-h-[520px]">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.35em] text-tree-green">Message received</p>
           <h2 className="mt-5 text-4xl font-black text-white">Your message is growing roots.</h2>
@@ -62,7 +62,7 @@ export function ContactForm() {
       <Field label="How did you hear about TREE? (optional)" name="source" autoComplete="off" />
       {status === "error" && (
         <p className="rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-400">
-          Something went wrong. Please try again or email us directly at hello@treesystems.ai
+          Something went wrong. Please try again or text us at (201) 279-1840
         </p>
       )}
       <button
@@ -143,12 +143,6 @@ export function ContactOptions() {
       label: "Text TREE",
       detail: `${textNumberDisplay} — texting available now`,
       href: textNumberHref
-    },
-    {
-      Icon: Mail,
-      label: "Email TREE",
-      detail: "hello@treesystems.ai",
-      href: "mailto:hello@treesystems.ai"
     },
     {
       Icon: Bot,

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { workflowSteps } from "@/lib/data";
+import { usePrefersReducedMotion } from "@/components/animation/useGsapReveal";
 
 // ─── Color tokens ─────────────────────────────────────────────────────────────
 
@@ -418,26 +419,34 @@ function MobileLayout() {
 function DesktopExperience() {
   const pinnedRef = useRef<HTMLDivElement>(null);
   const [phase, setPhase] = useState(0);
+  const reducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const el = pinnedRef.current;
     if (!el) return;
 
+    if (reducedMotion) {
+      setPhase(0);
+      return;
+    }
+
     const trigger = ScrollTrigger.create({
       trigger: el,
       start: "top top",
-      end: `+=${workflowSteps.length * 100}vh`,
+      end: `+=${workflowSteps.length * 92}vh`,
       pin: true,
       pinSpacing: true,
+      anticipatePin: 1,
+      invalidateOnRefresh: true,
       onUpdate(self) {
-        const p = Math.min(workflowSteps.length - 1, Math.floor(self.progress * workflowSteps.length));
+        const p = Math.min(workflowSteps.length - 1, Math.round(self.progress * (workflowSteps.length - 1)));
         setPhase(p);
       },
     });
 
     return () => trigger.kill();
-  }, []);
+  }, [reducedMotion]);
 
   return (
     <div ref={pinnedRef} className="flex h-screen bg-[#050505]">
@@ -456,6 +465,7 @@ function DesktopExperience() {
 
 export function BranchingWorkflow() {
   const [mode, setMode] = useState<"mobile" | "desktop" | null>(null);
+  const reducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
     const check = () => setMode(window.innerWidth >= 900 ? "desktop" : "mobile");
@@ -465,6 +475,6 @@ export function BranchingWorkflow() {
   }, []);
 
   if (mode === null) return null;
-  if (mode === "mobile") return <MobileLayout />;
+  if (mode === "mobile" || reducedMotion) return <MobileLayout />;
   return <DesktopExperience />;
 }

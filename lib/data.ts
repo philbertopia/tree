@@ -312,13 +312,13 @@ export const industries: FeatureCard[] = [
 ];
 
 export const trainingItems = [
-  "Practical AI literacy for business owners, teams, and individuals",
-  "Consultation for owners and individuals choosing where AI actually fits",
-  "How to prompt, test, and review AI outputs safely",
-  "Vibe coding with guardrails for content, workflows, and internal tools",
-  "Understanding what your automation is doing and when to override it",
-  "Learning only what you need to operate, improve, and trust your system",
-  "Keeping humans in control as AI systems grow"
+  "AI literacy: know what to trust, what to question, and how to review outputs safely",
+  "Vibe coding: prototype internal tools, workflows, and content systems with guardrails",
+  "System ownership: operate, pause, edit, and improve your workflows with confidence",
+  "Prompting and testing habits that make AI outputs easier to verify",
+  "Human approval routines for finance, security, customer-facing, and operational work",
+  "Practical consultation for choosing where AI belongs and where it does not",
+  "Team handoff so the system can keep improving after launch"
 ].map((description) => ({ description, icon: CheckCircle2 }));
 
 export const testimonials: Testimonial[] = [

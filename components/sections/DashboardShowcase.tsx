@@ -1,25 +1,32 @@
 "use client";
 
 import Image from "next/image";
+import { useRef } from "react";
 import { Bar, BarChart, Cell, Line, LineChart, RadialBar, RadialBarChart, ResponsiveContainer, Tooltip, XAxis } from "recharts";
 import { Activity, Banknote, BriefcaseBusiness, CheckCircle2, HeartPulse, ShieldAlert } from "lucide-react";
 import { dashboardData } from "@/lib/data";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FloatingNodeClusters } from "@/components/visuals/FloatingNodeClusters";
+import { useGsapReveal } from "@/components/animation/useGsapReveal";
 
 export function DashboardShowcase() {
+  const sectionRef = useRef<HTMLElement>(null);
+  useGsapReveal(sectionRef);
+
   return (
-    <section className="section-shell relative overflow-hidden">
+    <section ref={sectionRef} className="section-shell relative overflow-hidden" data-gsap="section">
       <FloatingNodeClusters density="medium" size="mixed" movement="crossflow" focus="edges" seed={108} />
       <div className="container-shell relative z-10">
-        <SectionHeading
-          eyebrow="Dashboard showcase"
-          title="Operational visibility for businesses, individuals, and AI-powered systems."
-          description="TREE builds dashboards, automations, and decision systems that help people see what matters, act faster, and stay in control across business development, finance, security, healthcare, and personal productivity."
-        />
+        <div data-gsap="heading">
+          <SectionHeading
+            eyebrow="Dashboard showcase"
+            title="Operational visibility for businesses, individuals, and AI-powered systems."
+            description="TREE builds dashboards, automations, and decision systems that help people see what matters, act faster, and stay in control across business development, finance, security, healthcare, and personal productivity."
+          />
+        </div>
         <div className="mb-8 grid gap-4 md:grid-cols-[1.6fr_1fr]">
-          <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-white/10 bg-white/[0.03]">
+          <div data-gsap="image" className="relative aspect-[16/9] overflow-hidden rounded-xl border border-white/10 bg-white/[0.03]">
             <Image
               src="/images/sections/dashboard.png"
               alt="Custom AI dashboard with business, finance, security, and workflow metrics"
@@ -33,7 +40,7 @@ export function DashboardShowcase() {
               <p className="mt-0.5 text-sm font-semibold text-white">Business · Finance · Security · Workflow</p>
             </div>
           </div>
-          <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] md:aspect-auto">
+          <div data-gsap="image" className="relative aspect-[16/9] overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] md:aspect-auto">
             <Image
               src="/images/sections/futuristic-dashboard.png"
               alt="Futuristic AI command dashboard with real-time system metrics"
@@ -105,7 +112,7 @@ function MetricCard({
   children: React.ReactNode;
 }) {
   return (
-    <GlassCard className="min-h-[260px] hover:-translate-y-1 hover:border-tree-green/40 hover:shadow-[0_12px_32px_rgba(74,222,128,0.08)]">
+    <GlassCard data-gsap="card" className="md:min-h-[260px] hover:-translate-y-1 hover:border-tree-green/40 hover:shadow-[0_12px_32px_rgba(74,222,128,0.08)]">
       <div className="mb-7 flex items-center justify-between">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.25em] text-gray-500">{title}</p>

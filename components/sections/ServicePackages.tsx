@@ -14,7 +14,7 @@ const packageImages: Record<string, string> = {
   "Automation Build": "/images/sections/automation.png",
   "Dashboard/System Build": "/images/sections/floating-dashboard.png",
   "Security/Finance Systems": "/images/sections/security-finance.png",
-  "Training Program": "/images/sections/vide-coding.png"
+  "Training Program": "/images/sections/vibe-coding.png"
 };
 
 export function ServicePackages() {
@@ -38,7 +38,7 @@ export function ServicePackages() {
             const Icon = item.icon;
             return (
               <motion.div key={item.title} variants={fadeInUp}>
-                <GlassCard tone={item.tone ?? "green"} className="flex h-full min-h-[310px] flex-col hover:-translate-y-1.5 hover:border-tree-green/40 hover:shadow-[0_12px_32px_rgba(74,222,128,0.1)]">
+                <GlassCard tone={item.tone ?? "green"} className="flex h-full flex-col hover:-translate-y-1.5 hover:border-tree-green/40 hover:shadow-[0_12px_32px_rgba(74,222,128,0.1)] md:min-h-[310px]">
                   <div className="relative mb-6 aspect-[4/3] overflow-hidden rounded-lg border border-white/10 bg-white/[0.03]">
                     <Image
                       src={packageImages[item.title]}

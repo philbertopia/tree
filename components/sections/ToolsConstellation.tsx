@@ -1206,7 +1206,7 @@ export function ToolsConstellation() {
         />
         <GlassCard className="relative overflow-hidden p-0">
           <div className="pointer-events-none absolute inset-0 z-10 bg-[radial-gradient(circle_at_50%_40%,rgba(103,232,249,0.08),transparent_32rem),radial-gradient(circle_at_10%_80%,rgba(74,222,128,0.08),transparent_24rem),radial-gradient(circle_at_90%_20%,rgba(167,139,250,0.1),transparent_26rem)]" />
-          <div className="relative h-[740px] max-h-[calc(100vh-6rem)] min-h-[590px] md:h-[650px]">
+          <div className="relative h-[560px] max-h-[calc(100vh-5rem)] min-h-[440px] md:h-[650px] md:max-h-[calc(100vh-6rem)] md:min-h-[590px]">
             <Canvas
               camera={{ position: [0, 15.8, 8.2], fov: 52 }}
               dpr={[1, 1.6]}
