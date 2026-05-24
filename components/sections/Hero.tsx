@@ -78,9 +78,6 @@ export function Hero() {
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row md:justify-start">
             <div className="relative inline-flex">
-              {/* Expanding pulse rings */}
-              <span className="pointer-events-none absolute -inset-1 animate-ping rounded-full border border-tree-green/28 [animation-duration:2.6s]" aria-hidden="true" />
-              <span className="pointer-events-none absolute -inset-2.5 animate-ping rounded-full border border-tree-green/14 [animation-duration:2.6s] [animation-delay:0.9s]" aria-hidden="true" />
               {/* Orbiting glow dots */}
               <span className="pointer-events-none absolute -left-3 -top-1.5 h-2 w-2 animate-pulse rounded-full bg-tree-green/85 blur-[3px] [animation-duration:1.7s]" aria-hidden="true" />
               <span className="pointer-events-none absolute -right-3 -bottom-1.5 h-2 w-2 animate-pulse rounded-full bg-cyan-400/75 blur-[3px] [animation-duration:2.2s] [animation-delay:0.5s]" aria-hidden="true" />
