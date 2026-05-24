@@ -28,7 +28,7 @@ export function ServicesGrid() {
             const Icon = service.icon;
             return (
               <motion.div key={service.title} variants={fadeInUp}>
-                <GlassCard tone={service.tone ?? "green"} className="h-full transition hover:-translate-y-1 hover:border-tree-green/45">
+                <GlassCard tone={service.tone ?? "green"} className="h-full hover:-translate-y-1 hover:border-tree-green/40 hover:shadow-[0_12px_32px_rgba(74,222,128,0.1)]">
                   <Icon className="mb-6 h-7 w-7 text-tree-green" aria-hidden="true" />
                   <h3 className="text-xl font-bold text-white">{service.title}</h3>
                   <p className="mt-3 leading-7 text-gray-400">{service.description}</p>

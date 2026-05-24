@@ -105,7 +105,7 @@ function MetricCard({
   children: React.ReactNode;
 }) {
   return (
-    <GlassCard className="min-h-[260px]">
+    <GlassCard className="min-h-[260px] hover:-translate-y-1 hover:border-tree-green/40 hover:shadow-[0_12px_32px_rgba(74,222,128,0.08)]">
       <div className="mb-7 flex items-center justify-between">
         <div>
           <p className="text-xs font-bold uppercase tracking-[0.25em] text-gray-500">{title}</p>

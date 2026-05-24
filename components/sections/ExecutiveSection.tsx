@@ -54,7 +54,7 @@ export function ExecutiveSection() {
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ delay: i * 0.08 }}
               >
-                <GlassCard className="flex gap-5">
+                <GlassCard className="flex gap-5 hover:-translate-y-1 hover:border-tree-green/40 hover:shadow-[0_8px_24px_rgba(74,222,128,0.08)]">
                   <span className="mt-0.5 text-xl font-black text-tree-green">0{i + 1}</span>
                   <div>
                     <h3 className="text-base font-bold text-white">{feat.label}</h3>

@@ -9,16 +9,25 @@ const textNumberDisplay = "(201) 279-1840";
 const textNumberHref = "sms:+12012791840";
 
 export function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setStatus("loading");
     const data = Object.fromEntries(new FormData(event.currentTarget));
-    console.info("TREE consultation form submission", data);
-    setSubmitted(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+      setStatus(res.ok ? "success" : "error");
+    } catch {
+      setStatus("error");
+    }
   }
 
-  if (submitted) {
+  if (status === "success") {
     return (
       <GlassCard className="grid min-h-[520px] place-items-center text-center">
         <div>
@@ -33,8 +42,8 @@ export function ContactForm() {
   return (
     <form onSubmit={onSubmit} className="grid gap-5">
       <div className="grid gap-5 md:grid-cols-2">
-        <Field label="Full Name" name="name" required />
-        <Field label="Email Address" name="email" type="email" required />
+        <Field label="Full Name" name="name" required autoComplete="name" />
+        <Field label="Email Address" name="email" type="email" required autoComplete="email" />
       </div>
       <div className="grid gap-5 md:grid-cols-2">
         <SelectField label="Business Type" name="businessType" options={businessTypes} required />
@@ -50,18 +59,36 @@ export function ContactForm() {
           className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-white outline-none transition placeholder:text-gray-600 focus:border-tree-green"
         />
       </label>
-      <Field label="How did you hear about TREE? (optional)" name="source" />
+      <Field label="How did you hear about TREE? (optional)" name="source" autoComplete="off" />
+      {status === "error" && (
+        <p className="rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-400">
+          Something went wrong. Please try again or email us directly at hello@treesystems.ai
+        </p>
+      )}
       <button
         type="submit"
-        className="min-h-12 rounded-full bg-tree-green px-6 py-3 font-bold text-black transition hover:bg-tree-leaf focus:outline-none focus:ring-2 focus:ring-tree-green focus:ring-offset-2 focus:ring-offset-tree-black"
+        disabled={status === "loading"}
+        className="min-h-12 rounded-full bg-tree-green px-6 py-3 font-bold text-black transition hover:bg-tree-leaf focus:outline-none focus:ring-2 focus:ring-tree-green focus:ring-offset-2 focus:ring-offset-tree-black disabled:cursor-not-allowed disabled:opacity-60"
       >
-        Start Growing Your System →
+        {status === "loading" ? "Sending..." : "Start Growing Your System →"}
       </button>
     </form>
   );
 }
 
-function Field({ label, name, type = "text", required = false }: { label: string; name: string; type?: string; required?: boolean }) {
+function Field({
+  label,
+  name,
+  type = "text",
+  required = false,
+  autoComplete
+}: {
+  label: string;
+  name: string;
+  type?: string;
+  required?: boolean;
+  autoComplete?: string;
+}) {
   return (
     <label className="grid gap-2">
       <span className="text-sm font-semibold text-white">{label}</span>
@@ -69,13 +96,24 @@ function Field({ label, name, type = "text", required = false }: { label: string
         name={name}
         type={type}
         required={required}
+        autoComplete={autoComplete}
         className="h-12 rounded-xl border border-white/10 bg-white/[0.03] px-4 text-white outline-none transition placeholder:text-gray-600 focus:border-tree-green"
       />
     </label>
   );
 }
 
-function SelectField({ label, name, options, required = false }: { label: string; name: string; options: string[]; required?: boolean }) {
+function SelectField({
+  label,
+  name,
+  options,
+  required = false
+}: {
+  label: string;
+  name: string;
+  options: string[];
+  required?: boolean;
+}) {
   return (
     <label className="grid gap-2">
       <span className="text-sm font-semibold text-white">{label}</span>
@@ -103,7 +141,7 @@ export function ContactOptions() {
     {
       Icon: MessageCircle,
       label: "Text TREE",
-      detail: `${textNumberDisplay} - texting available now`,
+      detail: `${textNumberDisplay} — texting available now`,
       href: textNumberHref
     },
     {

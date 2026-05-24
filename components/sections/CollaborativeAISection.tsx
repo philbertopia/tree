@@ -42,7 +42,7 @@ export function CollaborativeAISection() {
           />
           <div className="mt-8 grid gap-4">
             {principles.map((p) => (
-              <GlassCard key={p.number} className="flex gap-5">
+              <GlassCard key={p.number} className="flex gap-5 hover:-translate-y-1 hover:border-tree-green/40 hover:shadow-[0_8px_24px_rgba(74,222,128,0.08)]">
                 <span className="text-xl font-black text-tree-green">{p.number}</span>
                 <div>
                   <h3 className="text-base font-bold text-white">{p.title}</h3>

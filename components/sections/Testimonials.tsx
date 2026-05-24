@@ -1,11 +1,13 @@
 import { testimonials } from "@/lib/data";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { FloatingNodeClusters } from "@/components/visuals/FloatingNodeClusters";
 
 export function Testimonials() {
   return (
-    <section className="section-shell">
-      <div className="container-shell">
+    <section className="section-shell relative overflow-hidden">
+      <FloatingNodeClusters density="soft" size="small" movement="drift" focus="both" seed={99} />
+      <div className="container-shell relative z-10">
         <SectionHeading
           eyebrow="Client work"
           title="Useful, specific, and honest systems for real organizations."
@@ -13,7 +15,7 @@ export function Testimonials() {
         />
         <div className="grid gap-5 md:grid-cols-3">
           {testimonials.map((testimonial) => (
-            <GlassCard key={testimonial.role} className="flex h-[320px] flex-col justify-between overflow-hidden">
+            <GlassCard key={testimonial.role} className="flex min-h-[320px] flex-col justify-between">
               <p className="text-lg leading-8 text-gray-200">“{testimonial.quote}”</p>
               <div className="mt-8 border-t border-white/10 pt-5">
                 <p className="font-bold text-white">{testimonial.name}</p>
