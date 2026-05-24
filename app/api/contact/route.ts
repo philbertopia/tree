@@ -5,12 +5,16 @@ export async function POST(request: Request) {
     const data = (await request.json()) as Record<string, string>;
 
     const apiKey = process.env.RESEND_API_KEY;
-    const toEmail = process.env.CONTACT_EMAIL ?? "hello@treesystems.ai";
+    const toEmail = process.env.CONTACT_EMAIL;
+    const isNewsletter = data.submissionType === "newsletter";
+    const subject = isNewsletter
+      ? `New TREE Field Notes signup from ${data.email ?? "unknown email"}`
+      : `New consultation request from ${data.name}`;
 
     // Always log the submission server-side — this is the source of truth regardless of email delivery
     console.info("[TREE contact] New submission:", JSON.stringify(data, null, 2));
 
-    if (apiKey) {
+    if (apiKey && toEmail) {
       try {
         const res = await fetch("https://api.resend.com/emails", {
           method: "POST",
@@ -22,8 +26,17 @@ export async function POST(request: Request) {
             from: "TREE Contact Form <onboarding@resend.dev>",
             to: [toEmail],
             reply_to: data.email,
-            subject: `New consultation request from ${data.name}`,
-            html: `
+            subject,
+            html: isNewsletter
+              ? `
+              <h2 style="color:#4ade80;font-family:sans-serif">New TREE Field Notes Signup</h2>
+              <table style="width:100%;border-collapse:collapse;font-family:sans-serif">
+                <tr><td style="padding:8px 0;color:#888;font-size:13px;width:140px">Name</td><td style="padding:8px 0;font-weight:600">${esc(data.name || "Not provided")}</td></tr>
+                <tr><td style="padding:8px 0;color:#888;font-size:13px">Email</td><td style="padding:8px 0">${esc(data.email)}</td></tr>
+                <tr><td style="padding:8px 0;color:#888;font-size:13px">Source</td><td style="padding:8px 0">${esc(data.source || "Newsletter page")}</td></tr>
+              </table>
+            `
+              : `
               <h2 style="color:#4ade80;font-family:sans-serif">New Consultation Request</h2>
               <table style="width:100%;border-collapse:collapse;font-family:sans-serif">
                 <tr><td style="padding:8px 0;color:#888;font-size:13px;width:140px">Name</td><td style="padding:8px 0;font-weight:600">${esc(data.name)}</td></tr>

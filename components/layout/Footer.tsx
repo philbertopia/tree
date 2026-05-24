@@ -13,7 +13,7 @@ export function Footer() {
             <p className="mt-3 max-w-md text-sm leading-6 text-gray-500">
               Practical AI systems, human-guided automation, and tools your team can actually use.
             </p>
-            <p className="mt-3 text-xs text-gray-600">Hudson Valley, NY · hello@treesystems.ai · (201) 279-1840</p>
+            <p className="mt-3 text-xs text-gray-600">Hudson Valley, NY · (201) 279-1840</p>
           </div>
           <nav aria-label="Footer navigation" className="flex flex-wrap gap-4 text-sm text-gray-500">
             {navItems.map((item) => (
@@ -26,6 +26,9 @@ export function Footer() {
             </a>
             <Link href="/contact" className="transition hover:text-tree-green">
               Contact
+            </Link>
+            <Link href="/newsletter" className="transition hover:text-tree-green">
+              Newsletter
             </Link>
           </nav>
         </div>

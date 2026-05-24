@@ -4,6 +4,8 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CursorGlow } from "@/components/ui/CursorGlow";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { siteUrl } from "@/lib/seo-content";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://treesystems.ai"),
@@ -58,6 +60,34 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="dark">
       <body className="font-sans antialiased">
+        <JsonLd
+          data={[
+            {
+              "@context": "https://schema.org",
+              "@type": "ProfessionalService",
+              name: "TREE Systems",
+              url: siteUrl,
+              email: process.env.CONTACT_EMAIL,
+              telephone: "+12012791840",
+              areaServed: "United States",
+              address: {
+                "@type": "PostalAddress",
+                addressRegion: "NY",
+                addressCountry: "US"
+              },
+              description:
+                "TREE builds supervised AI agent systems, dashboards, automations, and training for businesses and teams."
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "TREE Systems",
+              url: siteUrl,
+              description:
+                "Practical AI systems, human-guided automation, dashboards, and training for real business workflows."
+            }
+          ]}
+        />
         <ScrollProgress />
         <CursorGlow />
         <Navbar />
