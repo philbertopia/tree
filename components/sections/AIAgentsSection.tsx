@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { Bot, GitBranch, Shield, Zap } from "lucide-react";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ImageFXOverlay } from "@/components/visuals/ImageFXOverlay";
 import { FloatingNodeClusters } from "@/components/visuals/FloatingNodeClusters";
 import { fadeInUp, staggerContainer } from "@/lib/utils";
 
@@ -57,7 +56,6 @@ export function AIAgentsSection() {
               className="object-cover opacity-80"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-tree-black/75 via-tree-black/20 to-transparent" />
-            <ImageFXOverlay variant="network" intensity="rich" />
             <div className="absolute bottom-5 left-5 right-12">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-tree-green/80">Agent Orchestration</p>
               <p className="mt-1 text-sm font-semibold text-white">Multi-agent pipelines with human supervision layers</p>

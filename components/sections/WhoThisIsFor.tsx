@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { audienceCards } from "@/lib/data";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ImageFXOverlay } from "@/components/visuals/ImageFXOverlay";
 import { FloatingNodeClusters } from "@/components/visuals/FloatingNodeClusters";
 import { fadeInUp, staggerContainer } from "@/lib/utils";
 
@@ -30,7 +29,6 @@ export function WhoThisIsFor() {
             className="object-cover opacity-80"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-tree-black/75 via-tree-black/20 to-tree-black/60" />
-          <ImageFXOverlay variant="network" intensity="medium" />
         </div>
         <motion.div
           variants={staggerContainer}

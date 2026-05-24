@@ -4,7 +4,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ImageFXOverlay } from "@/components/visuals/ImageFXOverlay";
 import { FloatingNodeClusters } from "@/components/visuals/FloatingNodeClusters";
 
 const principles = [
@@ -69,7 +68,6 @@ export function CollaborativeAISection() {
             className="object-cover opacity-80"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-tree-black/75 via-transparent to-transparent" />
-          <ImageFXOverlay variant="network" intensity="medium" />
           <div className="absolute bottom-6 left-6 right-6">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-tree-green/80">Collaborative AI</p>
             <p className="mt-1 text-sm font-semibold text-white">Human-guided automation with full team ownership</p>

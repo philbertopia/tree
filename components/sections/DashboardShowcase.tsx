@@ -6,7 +6,6 @@ import { Activity, Banknote, BriefcaseBusiness, CheckCircle2, HeartPulse, Shield
 import { dashboardData } from "@/lib/data";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ImageFXOverlay } from "@/components/visuals/ImageFXOverlay";
 import { FloatingNodeClusters } from "@/components/visuals/FloatingNodeClusters";
 
 export function DashboardShowcase() {
@@ -29,7 +28,6 @@ export function DashboardShowcase() {
               className="object-cover opacity-80"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-tree-black/70 via-transparent to-tree-black/60" />
-            <ImageFXOverlay variant="dashboard" intensity="rich" />
             <div className="absolute bottom-4 left-5">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-tree-green/80">Operational Dashboard</p>
               <p className="mt-0.5 text-sm font-semibold text-white">Business · Finance · Security · Workflow</p>
@@ -44,7 +42,6 @@ export function DashboardShowcase() {
               className="object-cover opacity-80"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-tree-black/80 via-transparent to-transparent" />
-            <ImageFXOverlay variant="network" intensity="medium" />
             <div className="absolute bottom-4 left-5">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-tree-violet/80">AI Command Layer</p>
               <p className="mt-0.5 text-sm font-semibold text-white">Agent orchestration &amp; decision visibility</p>

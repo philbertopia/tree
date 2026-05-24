@@ -4,7 +4,6 @@ import Image from "next/image";
 import { trainingItems } from "@/lib/data";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ImageFXOverlay } from "@/components/visuals/ImageFXOverlay";
 import { FloatingNodeClusters } from "@/components/visuals/FloatingNodeClusters";
 
 export function TrainingSection() {
@@ -28,7 +27,6 @@ export function TrainingSection() {
               className="object-cover opacity-80"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-tree-black/80 via-tree-black/20 to-transparent" />
-            <ImageFXOverlay variant="network" intensity="medium" />
             <div className="absolute bottom-5 left-5 right-5">
               <p className="text-xs font-bold uppercase tracking-[0.25em] text-tree-green/80">AI Literacy</p>
               <p className="mt-1 text-sm font-semibold text-white">Practical training for teams and business owners</p>
@@ -43,7 +41,6 @@ export function TrainingSection() {
               className="object-cover opacity-80"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-tree-black/80 via-tree-black/20 to-transparent" />
-            <ImageFXOverlay variant="dashboard" intensity="medium" />
             <div className="absolute bottom-5 left-5 right-5">
               <p className="text-xs font-bold uppercase tracking-[0.25em] text-tree-violet/80">Implementation</p>
               <p className="mt-1 text-sm font-semibold text-white">Guided AI workflow adoption and system ownership</p>

@@ -4,7 +4,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ImageFXOverlay } from "@/components/visuals/ImageFXOverlay";
 import { FloatingNodeClusters } from "@/components/visuals/FloatingNodeClusters";
 import { fadeInUp } from "@/lib/utils";
 
@@ -76,7 +75,6 @@ export function ExecutiveSection() {
                 className="object-cover opacity-80"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-tree-black/80 via-tree-black/10 to-transparent" />
-              <ImageFXOverlay variant="dashboard" intensity="medium" />
               <div className="absolute bottom-4 left-5">
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-tree-green/80">Executive Layer</p>
                 <p className="mt-0.5 text-sm font-semibold text-white">Strategic visibility · Decision support</p>
@@ -91,7 +89,6 @@ export function ExecutiveSection() {
                 className="object-cover opacity-80"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-tree-black/70 via-transparent to-transparent" />
-              <ImageFXOverlay variant="network" intensity="medium" />
               <div className="absolute bottom-4 left-5">
                 <p className="text-xs font-bold uppercase tracking-[0.2em] text-tree-violet/80">Command Center</p>
                 <p className="mt-0.5 text-sm font-semibold text-white">Real-time monitoring · Escalation paths</p>
