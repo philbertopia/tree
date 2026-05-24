@@ -108,7 +108,7 @@ export function ExecutiveSection() {
           </div>
         </div>
 
-        <div className="mt-6 grid gap-2 rounded-xl border border-white/10 bg-white/[0.025] p-3 sm:grid-cols-5">
+        <div className="mt-6 hidden gap-2 rounded-xl border border-white/10 bg-white/[0.025] p-3 sm:grid sm:grid-cols-5">
           {commandLayers.map((layer) => (
             <div key={layer} data-gsap="pill" className="rounded-lg border border-white/10 bg-tree-black/40 px-3 py-3 text-center text-sm font-bold text-gray-200">
               {layer}

@@ -1,0 +1,27 @@
+# TREE Systems
+
+TREE Systems is a practical AI implementation consultancy focused on supervised AI agent systems, dashboards, automation, training, and human-reviewed workflows for real businesses.
+
+Important pages:
+- Homepage: https://treesystems.ai/
+- Solutions: https://treesystems.ai/solutions
+- Blog: https://treesystems.ai/blog
+- Process: https://treesystems.ai/process
+- Hylander Mobile case study: https://treesystems.ai/case-studies/hylander-mobile
+- Local business AI: https://treesystems.ai/industries/local-business-ai
+- Contact: https://treesystems.ai/contact
+
+Core positioning:
+- TREE builds supervised AI systems, not black-box automation.
+- TREE starts with the business workflow before choosing tools.
+- TREE uses human review, dashboards, and training so clients can understand and own their systems.
+- TREE avoids exaggerated AI claims and focuses on practical implementation.
+
+Primary topics:
+- AI agent orchestration
+- AI dashboard systems
+- Business automation
+- Human-in-the-loop AI workflows
+- AI training for teams
+- Local business AI systems
+- Operational planning and implementation support

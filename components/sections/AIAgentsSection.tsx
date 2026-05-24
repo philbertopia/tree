@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { Bot, GitBranch, Shield, Zap } from "lucide-react";
@@ -101,6 +102,9 @@ export function AIAgentsSection() {
             </div>
           ))}
         </div>
+        <Link href="/solutions/ai-agent-orchestration" data-gsap="cta" className="mt-6 inline-flex rounded-full border border-tree-green/30 bg-tree-green/10 px-5 py-3 text-sm font-bold text-tree-green transition hover:bg-tree-green hover:text-black">
+          Explore agent orchestration
+        </Link>
       </div>
     </section>
   );

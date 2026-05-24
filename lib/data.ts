@@ -97,9 +97,11 @@ export interface CaseStudyCard {
 
 export const navItems: NavItem[] = [
   { label: "Services", href: "/#services" },
+  { label: "Solutions", href: "/solutions" },
   { label: "Industries", href: "/#industries" },
   { label: "Tools", href: "/#tools" },
   { label: "Training", href: "/#training" },
+  { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" }
 ];
 

@@ -25,6 +25,7 @@ const caseComponents: Record<string, string[]> = {
 };
 
 const proofPoints = ["Human review built in", "Custom scoped systems", "Dashboards and training included"];
+const staticImageCases = new Set(["AI training and consultation system", "Marketing and growth automation system"]);
 
 export function CaseStudyCards() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -62,7 +63,7 @@ export function CaseStudyCards() {
                       className="object-cover opacity-80"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-tree-black/75 via-transparent to-transparent" />
-                    <div className="image-node-glint" aria-hidden="true" />
+                    {!staticImageCases.has(item.title) ? <div className="image-node-glint" aria-hidden="true" /> : null}
                   </div>
                   <Icon className="mb-6 h-7 w-7 text-tree-green" aria-hidden="true" />
                   <h3 className="text-2xl font-bold text-white">{item.title}</h3>
@@ -81,7 +82,7 @@ export function CaseStudyCards() {
             );
           })}
         </motion.div>
-        <div className="mt-6 grid gap-3 rounded-xl border border-white/10 bg-white/[0.025] p-3 md:grid-cols-3">
+        <div className="mt-6 hidden gap-3 rounded-xl border border-white/10 bg-white/[0.025] p-3 md:grid md:grid-cols-3">
           {proofPoints.map((point) => (
             <div key={point} data-gsap="pill" className="rounded-lg border border-white/10 bg-tree-black/40 px-4 py-3 text-center text-sm font-bold text-gray-200">
               {point}

@@ -6,6 +6,7 @@ import { ContactCTAStrip } from "@/components/sections/ContactCTAStrip";
 import { DashboardShowcase } from "@/components/sections/DashboardShowcase";
 import { ExecutiveSection } from "@/components/sections/ExecutiveSection";
 import { Hero } from "@/components/sections/Hero";
+import { HylanderCaseStudy } from "@/components/sections/HylanderCaseStudy";
 import { IndustriesGrid } from "@/components/sections/IndustriesGrid";
 import { NoHypeSection } from "@/components/sections/NoHypeSection";
 import { SectionCTA } from "@/components/sections/SectionCTA";
@@ -56,6 +57,7 @@ export default function HomePage() {
       <ExecutiveSection />
 
       {/* Case studies */}
+      <HylanderCaseStudy />
       <CaseStudyCards />
 
       {/* Audience */}

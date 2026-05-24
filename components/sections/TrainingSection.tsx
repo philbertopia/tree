@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
 import { trainingItems } from "@/lib/data";
 import { GlassCard } from "@/components/ui/GlassCard";
@@ -59,7 +60,6 @@ export function TrainingSection() {
                 className="object-cover opacity-80"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-tree-black/85 via-tree-black/25 to-transparent" />
-              <div className="image-node-glint" aria-hidden="true" />
               <div className="absolute bottom-5 left-5 right-5">
                 <p className={`text-xs font-bold uppercase tracking-[0.25em] ${offer.tone}`}>{offer.label}</p>
                 <p className="mt-1 text-sm font-semibold leading-6 text-white">{offer.description}</p>
@@ -86,6 +86,9 @@ export function TrainingSection() {
             })}
           </GlassCard>
         </div>
+        <Link href="/solutions/ai-training-for-teams" data-gsap="cta" className="mt-8 inline-flex rounded-full border border-tree-green/30 bg-tree-green/10 px-5 py-3 text-sm font-bold text-tree-green transition hover:bg-tree-green hover:text-black">
+          Explore AI training for teams
+        </Link>
       </div>
     </section>
   );

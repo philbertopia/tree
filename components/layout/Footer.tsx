@@ -30,6 +30,12 @@ export function Footer() {
             <Link href="/newsletter" className="transition hover:text-tree-green">
               Newsletter
             </Link>
+            <Link href="/process" className="transition hover:text-tree-green">
+              Process
+            </Link>
+            <Link href="/case-studies/hylander-mobile" className="transition hover:text-tree-green">
+              Hylander Case Study
+            </Link>
           </nav>
         </div>
         <div className="mt-8 border-t border-white/[0.06] pt-6 text-xs text-gray-700">

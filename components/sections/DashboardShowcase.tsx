@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useRef } from "react";
 import { Bar, BarChart, Cell, Line, LineChart, RadialBar, RadialBarChart, ResponsiveContainer, Tooltip, XAxis } from "recharts";
 import { Activity, Banknote, BriefcaseBusiness, CheckCircle2, HeartPulse, ShieldAlert } from "lucide-react";
@@ -95,6 +96,9 @@ export function DashboardShowcase() {
             </ResponsiveContainer>
           </MetricCard>
         </div>
+        <Link href="/solutions/ai-dashboard-systems" data-gsap="cta" className="mt-8 inline-flex rounded-full border border-tree-green/30 bg-tree-green/10 px-5 py-3 text-sm font-bold text-tree-green transition hover:bg-tree-green hover:text-black">
+          Explore AI dashboard systems
+        </Link>
       </div>
     </section>
   );
