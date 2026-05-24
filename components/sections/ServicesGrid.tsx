@@ -4,12 +4,14 @@ import { motion } from "framer-motion";
 import { services } from "@/lib/data";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { FloatingNodeClusters } from "@/components/visuals/FloatingNodeClusters";
 import { fadeInUp, staggerContainer } from "@/lib/utils";
 
 export function ServicesGrid() {
   return (
-    <section id="services" className="section-shell scroll-mt-24">
-      <div className="container-shell">
+    <section id="services" className="section-shell relative overflow-hidden scroll-mt-24">
+      <FloatingNodeClusters density="rich" size="mixed" movement="crossflow" focus="right" seed={12} />
+      <div className="container-shell relative z-10">
         <SectionHeading
           eyebrow="Services"
           title="Systems that grow with your business."

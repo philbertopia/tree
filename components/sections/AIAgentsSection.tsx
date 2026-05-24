@@ -73,7 +73,7 @@ export function AIAgentsSection() {
               const Icon = cap.icon;
               return (
                 <motion.div key={cap.title} variants={fadeInUp}>
-                  <GlassCard tone={cap.tone} className="h-full">
+                  <GlassCard tone={cap.tone} className="h-full hover:-translate-y-1.5 hover:border-tree-green/40 hover:shadow-[0_12px_32px_rgba(74,222,128,0.1)]">
                     <Icon className="mb-4 h-6 w-6 text-tree-green" aria-hidden="true" />
                     <h3 className="text-lg font-bold text-white">{cap.title}</h3>
                     <p className="mt-2 text-sm leading-7 text-gray-400">{cap.description}</p>

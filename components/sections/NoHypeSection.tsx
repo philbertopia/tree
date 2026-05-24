@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { SectionHeading } from "@/components/ui/SectionHeading";
+import { FloatingNodeClusters } from "@/components/visuals/FloatingNodeClusters";
 
 const points = [
   ["01", "We audit before we build.", "We map your actual business before recommending any tool."],
@@ -12,20 +12,26 @@ const points = [
 
 export function NoHypeSection() {
   return (
-    <section className="section-shell">
-      <div className="container-shell grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+    <section className="section-shell relative overflow-hidden">
+      <FloatingNodeClusters density="medium" size="mixed" movement="school" focus="bottom-left" seed={72} />
+      <div className="container-shell relative z-10 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.7 }}
         >
-          <SectionHeading
-            eyebrow="The TREE approach"
-            title="Most businesses don't need more AI tools. They need a system."
-            description="TREE helps you choose the right tools, connect them to your real workflow, and train your team to use them without losing control."
-          />
-          <p className="max-w-2xl text-xl leading-9 text-white">
+          <p className="mb-5 text-xs font-bold uppercase tracking-[0.38em] text-tree-green/70">The TREE approach</p>
+          <h2
+            className="font-black leading-[0.95] tracking-tight text-white"
+            style={{ fontSize: "clamp(2.6rem, 5.5vw, 4.8rem)" }}
+          >
+            Not more tools.<br />A system.
+          </h2>
+          <p className="mt-6 max-w-2xl text-base leading-7 text-gray-400">
+            TREE helps you choose the right tools, connect them to your real workflow, and train your team to use them without losing control.
+          </p>
+          <p className="mt-5 max-w-2xl text-xl leading-9 text-white">
             Automation should feel like a living extension of your business, not a pile of disconnected apps.
           </p>
         </motion.div>

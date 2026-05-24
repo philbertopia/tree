@@ -19,6 +19,9 @@ export function Footer() {
               {item.label}
             </Link>
           ))}
+          <a href="sms:+12012791840" className="transition hover:text-tree-green">
+            Text (201) 279-1840
+          </a>
           <Link href="/contact" className="transition hover:text-tree-green">
             Contact
           </Link>

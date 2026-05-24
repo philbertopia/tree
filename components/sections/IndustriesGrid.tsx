@@ -4,14 +4,16 @@ import { motion } from "framer-motion";
 import { industries } from "@/lib/data";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { FloatingNodeClusters } from "@/components/visuals/FloatingNodeClusters";
 import { fadeInUp, staggerContainer } from "@/lib/utils";
 
 const industryGroups = ["Local Business", "Professional Services", "Finance & Security", "Creators & Digital", "Individuals & Training"];
 
 export function IndustriesGrid() {
   return (
-    <section id="industries" className="section-shell scroll-mt-24">
-      <div className="container-shell">
+    <section id="industries" className="section-shell relative overflow-hidden scroll-mt-24">
+      <FloatingNodeClusters density="swarm" size="mixed" movement="school" focus="edges" seed={24} />
+      <div className="container-shell relative z-10">
         <SectionHeading
           eyebrow="Industries"
           title="Practical AI for real businesses, not one-size-fits-all software."

@@ -32,12 +32,11 @@ export default function HomePage() {
       {/* Services */}
       <ServicesGrid />
       <ServicePackages />
-      <SectionCTA
-        eyebrow="Custom scope, real outcomes"
-        title="Every engagement starts with a conversation, not a proposal."
-        description="TREE scopes each system around the real problem. No templates, no guesswork — just a clear starting point and honest expectations."
-        cta="Get a Free Consultation"
-      />
+
+      {/* Social proof — placed right after services for credibility */}
+      <div className="section-divider" aria-hidden="true" />
+      <Testimonials />
+      <div className="section-divider" aria-hidden="true" />
 
       {/* AI Agent capabilities */}
       <AIAgentsSection />
@@ -49,6 +48,7 @@ export default function HomePage() {
         title="Not sure which tools belong in your workflow?"
         description="TREE maps the stack around the problem first, then chooses the smallest practical system that can start helping."
         cta="Map your system"
+        variant="inline"
       />
 
       {/* Dashboards + command layer */}
@@ -63,12 +63,6 @@ export default function HomePage() {
 
       {/* Industries */}
       <IndustriesGrid />
-      <SectionCTA
-        eyebrow="Industry fit"
-        title="Your business does not need a generic AI template."
-        description="Bring the workflow, bottleneck, or idea. TREE will help decide what should be automated, trained, measured, or left alone."
-        cta="Book a consultation"
-      />
 
       {/* Human + AI collaboration principle */}
       <CollaborativeAISection />
@@ -82,9 +76,8 @@ export default function HomePage() {
         cta="Start learning your system"
       />
 
-      {/* Demo + social proof */}
+      {/* Demo */}
       <TerminalChatSection />
-      <Testimonials />
 
       {/* Conversion */}
       <ContactCTAStrip />

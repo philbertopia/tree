@@ -9,7 +9,7 @@ export function GlassCard({ className, tone = "green", ...props }: GlassCardProp
   return (
     <div
       className={cn(
-        "glass rounded-xl p-6 shadow-glow",
+        "glass rounded-xl p-6 shadow-glow transition-all duration-300",
         tone === "violet" && "glass-violet shadow-violet",
         className
       )}

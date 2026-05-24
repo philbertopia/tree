@@ -28,7 +28,6 @@ export function Navbar() {
     const onResize = () => {
       if (window.innerWidth >= 768) setOpen(false);
     };
-
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
@@ -36,8 +35,10 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed inset-x-0 top-0 z-50 border-b transition-all duration-300",
-        scrolled ? "border-white/10 bg-tree-black/90 backdrop-blur-xl" : "border-transparent bg-transparent"
+        "fixed inset-x-0 top-0 z-50 border-b transition-all duration-500",
+        scrolled
+          ? "border-white/[0.07] bg-[#050505]/92 backdrop-blur-xl"
+          : "border-transparent bg-transparent"
       )}
     >
       <a
@@ -47,22 +48,33 @@ export function Navbar() {
         Skip to main content
       </a>
       <nav className="container-shell flex h-20 items-center justify-between gap-4" aria-label="Primary navigation">
-        <Link href="/" className="shrink-0 text-lg font-black tracking-[0.3em] text-tree-green">
+        <Link href="/" className="group flex shrink-0 items-center gap-2.5 text-lg font-black tracking-[0.3em] text-tree-green">
+          <span
+            className="h-1.5 w-1.5 rounded-full bg-tree-green transition-all duration-300 group-hover:shadow-[0_0_10px_rgba(74,222,128,0.9)]"
+            style={{ boxShadow: "0 0 6px rgba(74,222,128,0.7)" }}
+            aria-hidden="true"
+          />
           TREE
         </Link>
+
         <div className="hidden min-w-0 items-center gap-6 md:flex lg:gap-8">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="text-sm text-gray-400 transition hover:text-white">
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-sm font-medium text-gray-300 transition hover:text-white"
+            >
               {item.label}
             </Link>
           ))}
           <Link
             href="/contact"
-            className="rounded-full border border-tree-green/30 bg-tree-green/10 px-5 py-2.5 text-sm font-semibold text-tree-green transition hover:bg-tree-green hover:text-black"
+            className="rounded-full border border-tree-green/40 bg-tree-green/12 px-5 py-2.5 text-sm font-bold text-tree-green shadow-[0_0_18px_rgba(74,222,128,0.06)] transition hover:bg-tree-green hover:text-black hover:shadow-[0_0_24px_rgba(74,222,128,0.22)]"
           >
             Consult →
           </Link>
         </div>
+
         <button
           type="button"
           className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-tree-green transition hover:border-tree-green/30 hover:bg-tree-green/10 md:hidden"
@@ -76,7 +88,7 @@ export function Navbar() {
 
       {open ? (
         <div className="container-shell pb-4 md:hidden">
-          <div className="rounded-2xl border border-white/10 bg-tree-black/95 p-3 shadow-2xl shadow-black/40 backdrop-blur-xl">
+          <div className="rounded-2xl border border-white/10 bg-[#050505]/98 p-3 shadow-2xl shadow-black/60 backdrop-blur-xl">
             {navItems.map((item) => (
               <Link
                 key={item.href}

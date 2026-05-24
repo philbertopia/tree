@@ -1,9 +1,12 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import { Bot, Mail, UserRound } from "lucide-react";
+import { Bot, Mail, MessageCircle, UserRound } from "lucide-react";
 import { budgetRanges, businessTypes } from "@/lib/data";
 import { GlassCard } from "@/components/ui/GlassCard";
+
+const textNumberDisplay = "(201) 279-1840";
+const textNumberHref = "sms:+12012791840";
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -96,18 +99,57 @@ function SelectField({ label, name, options, required = false }: { label: string
 }
 
 export function ContactOptions() {
+  const options = [
+    {
+      Icon: MessageCircle,
+      label: "Text TREE",
+      detail: `${textNumberDisplay} - texting available now`,
+      href: textNumberHref
+    },
+    {
+      Icon: Mail,
+      label: "Email TREE",
+      detail: "hello@treesystems.ai",
+      href: "mailto:hello@treesystems.ai"
+    },
+    {
+      Icon: Bot,
+      label: "AI secretary",
+      detail: "Coming soon for faster intake"
+    },
+    {
+      Icon: UserRound,
+      label: "Human follow-up",
+      detail: "We review every serious inquiry directly"
+    }
+  ];
+
   return (
     <div className="mt-10 grid gap-3">
-      {[
-        [Mail, "hello@treesystems.ai"],
-        [Bot, "Speak with our AI secretary"],
-        [UserRound, "Contact a human directly"]
-      ].map(([Icon, label]) => (
-        <div key={String(label)} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4 text-gray-300">
-          <Icon className="h-5 w-5 text-tree-green" />
-          <span>{String(label)}</span>
-        </div>
-      ))}
+      {options.map(({ Icon, label, detail, href }) => {
+        const content = (
+          <>
+            <Icon className="h-5 w-5 flex-none text-tree-green" />
+            <span>
+              <span className="block font-semibold text-white">{label}</span>
+              <span className="mt-1 block text-sm text-gray-400">{detail}</span>
+            </span>
+          </>
+        );
+
+        const className =
+          "flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] p-4 text-gray-300 transition hover:border-tree-green/30 hover:bg-tree-green/5";
+
+        return href ? (
+          <a key={label} href={href} className={className}>
+            {content}
+          </a>
+        ) : (
+          <div key={label} className={className}>
+            {content}
+          </div>
+        );
+      })}
     </div>
   );
 }

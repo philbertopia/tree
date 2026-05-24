@@ -41,7 +41,7 @@ export function WhoThisIsFor() {
             const Icon = audience.icon;
             return (
               <motion.div key={audience.title} variants={fadeInUp}>
-                <GlassCard tone={audience.tone ?? "green"} className="h-full min-h-[245px]">
+                <GlassCard tone={audience.tone ?? "green"} className="h-full min-h-[245px] hover:-translate-y-1.5 hover:border-tree-green/40 hover:shadow-[0_12px_32px_rgba(74,222,128,0.1)]">
                   <Icon className="mb-6 h-7 w-7 text-tree-green" aria-hidden="true" />
                   <h3 className="text-xl font-bold text-white">{audience.title}</h3>
                   <p className="mt-3 leading-7 text-gray-400">{audience.description}</p>

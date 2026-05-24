@@ -31,7 +31,26 @@ export const metadata: Metadata = {
   openGraph: {
     title: "TREE — Practical AI Systems for Real Businesses",
     description: "AI without the hype. Human-guided automation, AI agents, websites, SEO, dashboards, and training.",
-    type: "website"
+    type: "website",
+    images: [
+      {
+        url: "/images/social/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "TREE AI automation systems and dashboards"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "TREE — Practical AI Systems for Real Businesses",
+    description: "AI without the hype. Human-guided automation, AI agents, websites, SEO, dashboards, and training.",
+    images: ["/images/social/og-image.png"]
+  },
+  icons: {
+    icon: "/images/brand/favicon.png",
+    shortcut: "/images/brand/favicon.png",
+    apple: "/images/brand/favicon.png"
   }
 };
 
