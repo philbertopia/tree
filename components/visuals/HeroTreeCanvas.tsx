@@ -180,6 +180,39 @@ function buildPulsePaths(compact: boolean): PulsePath[] {
       color: CYAN,
       size: 0.03,
       speed: 0.045
+    },
+    {
+      curve: makeCurve([
+        [centerX - 0.55, -1.62 + lift, -0.7],
+        [centerX - 0.82, -0.72 + lift, -0.9],
+        [centerX - 1.3, 0.28 + lift, -1.1],
+        [centerX - 0.92, 1.22 + lift, -1.32]
+      ]),
+      color: GREEN,
+      size: 0.032,
+      speed: 0.051
+    },
+    {
+      curve: makeCurve([
+        [centerX + 2.1, -1.55 + lift, -0.55],
+        [centerX + 1.55, -0.88 + lift, -0.78],
+        [centerX + 1.82, 0.18 + lift, -1.0],
+        [centerX + 2.28, 1.08 + lift, -1.26]
+      ]),
+      color: CYAN,
+      size: 0.034,
+      speed: 0.046
+    },
+    {
+      curve: makeCurve([
+        [centerX + 0.42, -1.4 + lift, -0.85],
+        [centerX - 0.28, -0.55 + lift, -1.05],
+        [centerX - 0.88, 0.42 + lift, -1.22],
+        [centerX - 0.3, 1.52 + lift, -1.48]
+      ]),
+      color: VIOLET,
+      size: 0.028,
+      speed: 0.04
     }
   ];
 }
@@ -262,6 +295,30 @@ function buildScatterGlowNodes(centerX: number, compact: boolean): GlowNodeSpec[
   }
 
   return nodes;
+}
+
+function buildCTAOrbs(compact: boolean): GlowNodeSpec[] {
+  if (compact) {
+    return [
+      { position: [-1.4, -1.55, -0.85], color: GREEN, size: 0.065, phase: 0, drift: [0.05, 0.038], speed: 1.05, opacity: 0.72 },
+      { position: [0.6, -1.3, -1.0], color: CYAN, size: 0.048, phase: 1.3, drift: [0.042, 0.032], speed: 0.82, opacity: 0.58 },
+      { position: [-0.5, -1.75, -0.95], color: GREEN, size: 0.04, phase: 2.2, drift: [0.048, 0.036], speed: 1.2, opacity: 0.62 },
+      { position: [1.1, -1.5, -0.8], color: VIOLET, size: 0.055, phase: 0.8, drift: [0.044, 0.033], speed: 0.9, opacity: 0.52 },
+      { position: [-1.0, -1.15, -1.1], color: CYAN, size: 0.035, phase: 3.1, drift: [0.05, 0.038], speed: 1.3, opacity: 0.5 },
+      { position: [0.1, -1.9, -0.9], color: GREEN, size: 0.03, phase: 1.7, drift: [0.04, 0.03], speed: 0.95, opacity: 0.44 }
+    ];
+  }
+  return [
+    { position: [-3.0, -0.85, -0.8], color: GREEN, size: 0.078, phase: 0, drift: [0.045, 0.034], speed: 0.88, opacity: 0.75 },
+    { position: [-1.8, -1.2, -1.0], color: CYAN, size: 0.058, phase: 1.5, drift: [0.04, 0.03], speed: 0.72, opacity: 0.62 },
+    { position: [-3.4, -0.35, -0.9], color: GREEN, size: 0.045, phase: 2.3, drift: [0.044, 0.033], speed: 1.05, opacity: 0.56 },
+    { position: [-1.0, -1.4, -1.1], color: VIOLET, size: 0.065, phase: 0.7, drift: [0.038, 0.028], speed: 0.8, opacity: 0.68 },
+    { position: [-2.4, -1.6, -0.75], color: GREEN, size: 0.05, phase: 1.9, drift: [0.048, 0.036], speed: 1.2, opacity: 0.6 },
+    { position: [-3.8, -1.1, -1.2], color: CYAN, size: 0.04, phase: 3.3, drift: [0.042, 0.032], speed: 0.95, opacity: 0.52 },
+    { position: [-1.4, -0.65, -0.85], color: GREEN, size: 0.038, phase: 1.0, drift: [0.038, 0.028], speed: 1.35, opacity: 0.5 },
+    { position: [-2.8, 0.0, -1.0], color: VIOLET, size: 0.052, phase: 2.8, drift: [0.04, 0.03], speed: 0.68, opacity: 0.44 },
+    { position: [-0.5, -1.8, -0.9], color: GREEN, size: 0.032, phase: 0.4, drift: [0.05, 0.038], speed: 1.1, opacity: 0.48 }
+  ];
 }
 
 function buildFlowClusters(compact: boolean): FlowClusterSpec[] {
@@ -616,6 +673,7 @@ function AmbientRig({
   const pulsePaths = useMemo(() => buildPulsePaths(compact), [compact]);
   const canopyNodes = useMemo(() => buildCanopyNodes(centerX, compact), [centerX, compact]);
   const scatterNodes = useMemo(() => buildScatterGlowNodes(centerX, compact), [centerX, compact]);
+  const ctaOrbs = useMemo(() => buildCTAOrbs(compact), [compact]);
   const flowClusters = useMemo(() => buildFlowClusters(compact), [compact]);
 
   useFrame(({ clock, pointer }) => {
@@ -665,6 +723,9 @@ function AmbientRig({
       ))}
       {scatterNodes.map((node, index) => (
         <GlowNode key={`scatter-node-${index}`} node={node} reducedMotion={reducedMotion} scrollProgress={scrollProgress} />
+      ))}
+      {ctaOrbs.map((node, index) => (
+        <GlowNode key={`cta-orb-${index}`} node={node} reducedMotion={reducedMotion} scrollProgress={scrollProgress} />
       ))}
       {canopyNodes.slice(0, compact ? 12 : 20).map((node, index) => {
         const next = canopyNodes[(index * 3 + 5) % canopyNodes.length];
