@@ -1,7 +1,7 @@
 "use client";
 
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { type MutableRefObject, useEffect, useMemo, useRef, useState } from "react";
+import { type MutableRefObject, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 
 const GREEN = "#4ade80";
@@ -751,10 +751,25 @@ function AmbientRig({
   );
 }
 
+function ReadySignal({ onReady }: { onReady: () => void }) {
+  const frame = useRef(0);
+  const fired = useRef(false);
+  useFrame(() => {
+    if (fired.current) return;
+    frame.current += 1;
+    if (frame.current >= 10) {
+      fired.current = true;
+      onReady();
+    }
+  });
+  return null;
+}
+
 export function HeroTreeCanvas() {
   const reducedMotion = usePrefersReducedMotion();
   const scrollProgress = useScrollProgressRef();
   const [ready, setReady] = useState(false);
+  const handleReady = useCallback(() => setReady(true), []);
 
   return (
     <div
@@ -771,11 +786,9 @@ export function HeroTreeCanvas() {
         camera={{ position: [0, 0, 5.8], fov: 44 }}
         dpr={[1, 1.2]}
         gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}
-        onCreated={() => {
-          setTimeout(() => setReady(true), 200);
-        }}
       >
         <AmbientRig reducedMotion={reducedMotion} scrollProgress={scrollProgress} />
+        <ReadySignal onReady={handleReady} />
       </Canvas>
     </div>
   );
