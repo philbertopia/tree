@@ -192,7 +192,7 @@ export const audienceCards: AudienceCard[] = [
   },
   {
     title: "Individuals",
-    description: "Use AI for personal dashboards, productivity systems, finance tracking, health routines, learning, and decision support.",
+    description: "Use AI for personal dashboards, productivity systems, finance tracking, healthcare routines, learning, and decision support.",
     icon: Smartphone,
     tone: "violet"
   },
@@ -237,6 +237,13 @@ export const caseStudyCards: CaseStudyCard[] = [
     outcome: "The client learns only what they need to operate and improve their system, with confidence about when to approve, pause, or override it.",
     icon: GraduationCap,
     tone: "violet"
+  },
+  {
+    title: "Marketing and growth automation system",
+    problem: "A business generates leads and content manually, leaving campaigns inconsistent and follow-up falling through the cracks.",
+    system: "TREE builds a marketing automation layer: AI-assisted content scheduling, lead routing, email flows, social post queues, and CRM triggers — all with human approval checkpoints.",
+    outcome: "Marketing runs on a consistent cadence with less manual effort. The team reviews and approves outputs instead of producing them from scratch.",
+    icon: Megaphone
   }
 ];
 
@@ -299,7 +306,7 @@ export const industries: FeatureCard[] = [
   { title: "YouTube Channels", description: "Script research, thumbnail automation, and publish scheduling.", icon: PlaySquare, group: "Creators & Digital" },
   { title: "Agencies", description: "White-label AI systems, client reporting, and workflow tooling.", icon: BrainCircuit, tone: "violet", group: "Creators & Digital" },
   { title: "Blockchain Projects", description: "Launch content, community automation, and smart contract tooling.", icon: Coins, tone: "violet", group: "Creators & Digital" },
-  { title: "Individuals / Personal Systems", description: "Personal dashboards, finance tracking, AI assistants, health routines, and productivity automation.", icon: Smartphone, tone: "violet", group: "Individuals & Training" },
+  { title: "Individuals / Personal Systems", description: "Personal dashboards, finance tracking, AI assistants, healthcare routines, and productivity automation.", icon: Smartphone, tone: "violet", group: "Individuals & Training" },
   { title: "Education / Training Programs", description: "Curriculum tools, student support assistants, lesson planning, progress dashboards, and AI literacy training.", icon: GraduationCap, tone: "violet", group: "Individuals & Training" },
   { title: "Nonprofits", description: "Grant research, donor outreach, and content automation.", icon: FileSearch, group: "Individuals & Training" }
 ];

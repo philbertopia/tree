@@ -1,16 +1,27 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { servicePackages } from "@/lib/data";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { FloatingNodeClusters } from "@/components/visuals/FloatingNodeClusters";
 import { fadeInUp, staggerContainer } from "@/lib/utils";
+
+const packageImages: Record<string, string> = {
+  "AI Consultation": "/images/sections/consultant.png",
+  "Automation Build": "/images/sections/automation.png",
+  "Dashboard/System Build": "/images/sections/floating-dashboard.png",
+  "Security/Finance Systems": "/images/sections/security-finance.png",
+  "Training Program": "/images/sections/vide-coding.png"
+};
 
 export function ServicePackages() {
   return (
-    <section className="section-shell">
-      <div className="container-shell">
+    <section className="section-shell relative overflow-hidden">
+      <FloatingNodeClusters density="rich" size="mixed" movement="crossflow" focus="edges" seed={84} />
+      <div className="container-shell relative z-10">
         <SectionHeading
           eyebrow="Service Packages"
           title="Clear starting points, custom-built around your situation."
@@ -28,6 +39,17 @@ export function ServicePackages() {
             return (
               <motion.div key={item.title} variants={fadeInUp}>
                 <GlassCard tone={item.tone ?? "green"} className="flex h-full min-h-[310px] flex-col">
+                  <div className="relative mb-6 aspect-[4/3] overflow-hidden rounded-lg border border-white/10 bg-white/[0.03]">
+                    <Image
+                      src={packageImages[item.title]}
+                      alt=""
+                      fill
+                      sizes="(min-width: 1280px) 20vw, (min-width: 768px) 50vw, 100vw"
+                      className="object-cover opacity-80"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-tree-black/70 via-transparent to-transparent" />
+                    <div className="image-node-glint" aria-hidden="true" />
+                  </div>
                   <Icon className="mb-6 h-7 w-7 text-tree-green" aria-hidden="true" />
                   <h3 className="text-xl font-bold text-white">{item.title}</h3>
                   <p className="mt-3 flex-1 leading-7 text-gray-400">{item.description}</p>

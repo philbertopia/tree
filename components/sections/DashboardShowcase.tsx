@@ -1,20 +1,56 @@
 "use client";
 
+import Image from "next/image";
 import { Bar, BarChart, Cell, Line, LineChart, RadialBar, RadialBarChart, ResponsiveContainer, Tooltip, XAxis } from "recharts";
 import { Activity, Banknote, BriefcaseBusiness, CheckCircle2, HeartPulse, ShieldAlert } from "lucide-react";
 import { dashboardData } from "@/lib/data";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ImageFXOverlay } from "@/components/visuals/ImageFXOverlay";
+import { FloatingNodeClusters } from "@/components/visuals/FloatingNodeClusters";
 
 export function DashboardShowcase() {
   return (
-    <section className="section-shell">
-      <div className="container-shell">
+    <section className="section-shell relative overflow-hidden">
+      <FloatingNodeClusters density="medium" size="mixed" movement="crossflow" focus="edges" seed={108} />
+      <div className="container-shell relative z-10">
         <SectionHeading
           eyebrow="Dashboard showcase"
           title="Operational visibility for businesses, individuals, and AI-powered systems."
-          description="TREE builds dashboards, automations, and decision systems that help people see what matters, act faster, and stay in control across business development, finance, security, health, and personal productivity."
+          description="TREE builds dashboards, automations, and decision systems that help people see what matters, act faster, and stay in control across business development, finance, security, healthcare, and personal productivity."
         />
+        <div className="mb-8 grid gap-4 md:grid-cols-[1.6fr_1fr]">
+          <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-white/10 bg-white/[0.03]">
+            <Image
+              src="/images/sections/dashboard.png"
+              alt="Custom AI dashboard with business, finance, security, and workflow metrics"
+              fill
+              sizes="(min-width: 1180px) 720px, 100vw"
+              className="object-cover opacity-80"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-tree-black/70 via-transparent to-tree-black/60" />
+            <ImageFXOverlay variant="dashboard" intensity="rich" />
+            <div className="absolute bottom-4 left-5">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-tree-green/80">Operational Dashboard</p>
+              <p className="mt-0.5 text-sm font-semibold text-white">Business · Finance · Security · Workflow</p>
+            </div>
+          </div>
+          <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] md:aspect-auto">
+            <Image
+              src="/images/sections/futuristic-dashboard.png"
+              alt="Futuristic AI command dashboard with real-time system metrics"
+              fill
+              sizes="(min-width: 1180px) 430px, 100vw"
+              className="object-cover opacity-80"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-tree-black/80 via-transparent to-transparent" />
+            <ImageFXOverlay variant="network" intensity="medium" />
+            <div className="absolute bottom-4 left-5">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-tree-violet/80">AI Command Layer</p>
+              <p className="mt-0.5 text-sm font-semibold text-white">Agent orchestration &amp; decision visibility</p>
+            </div>
+          </div>
+        </div>
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           <MetricCard title="AI System Activity" metric="42 tasks routed with human review" icon={Activity}>
             <ResponsiveContainer width="100%" height={120}>
@@ -45,7 +81,7 @@ export function DashboardShowcase() {
           <MetricCard title="Security Monitoring" metric="3 risks flagged for review" icon={ShieldAlert}>
             <StatusList items={["1 camera or sensor event", "2 medium-priority alerts", "0 exposed secrets"]} tone="violet" />
           </MetricCard>
-          <MetricCard title="Health / Personal Systems" metric="91% habit and workflow consistency" icon={HeartPulse}>
+          <MetricCard title="Healthcare / Personal Systems" metric="91% habit and workflow consistency" icon={HeartPulse}>
             <ResponsiveContainer width="100%" height={120}>
               <RadialBarChart innerRadius="62%" outerRadius="95%" data={[{ name: "approval", value: 91 }]}>
                 <RadialBar dataKey="value" cornerRadius={10}>

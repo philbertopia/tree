@@ -1,20 +1,37 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { audienceCards } from "@/lib/data";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ImageFXOverlay } from "@/components/visuals/ImageFXOverlay";
+import { FloatingNodeClusters } from "@/components/visuals/FloatingNodeClusters";
 import { fadeInUp, staggerContainer } from "@/lib/utils";
+
+const audienceImage = "/images/sections/buisness-dev.png";
 
 export function WhoThisIsFor() {
   return (
-    <section className="section-shell">
-      <div className="container-shell">
+    <section className="section-shell relative overflow-hidden">
+      <FloatingNodeClusters density="medium" size="mixed" movement="school" focus="both" seed={120} />
+      <div className="container-shell relative z-10">
         <SectionHeading
           eyebrow="Who this is for"
           title="AI systems for the people carrying the real decisions."
           description="TREE works with businesses and individuals who need practical support, clearer visibility, and tools they can actually understand."
         />
+        <div className="relative mb-8 aspect-[21/9] overflow-hidden rounded-xl border border-white/10 bg-white/[0.03]">
+          <Image
+            src={audienceImage}
+            alt="AI systems for business owners, individuals, finance teams, creators, and local businesses"
+            fill
+            sizes="(min-width: 1180px) 1180px, 100vw"
+            className="object-cover opacity-80"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-tree-black/75 via-tree-black/20 to-tree-black/60" />
+          <ImageFXOverlay variant="network" intensity="medium" />
+        </div>
         <motion.div
           variants={staggerContainer}
           initial="hidden"
