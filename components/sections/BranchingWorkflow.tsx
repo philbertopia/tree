@@ -416,33 +416,37 @@ function MobileLayout() {
 // ─── Desktop pinned experience ────────────────────────────────────────────────
 
 function DesktopExperience() {
-  const outerRef = useRef<HTMLDivElement>(null);
+  const pinnedRef = useRef<HTMLDivElement>(null);
   const [phase, setPhase] = useState(0);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
+    const el = pinnedRef.current;
+    if (!el) return;
+
     const trigger = ScrollTrigger.create({
-      trigger: outerRef.current,
+      trigger: el,
       start: "top top",
-      end: "bottom bottom",
+      end: `+=${workflowSteps.length * 100}vh`,
+      pin: true,
+      pinSpacing: true,
       onUpdate(self) {
         const p = Math.min(workflowSteps.length - 1, Math.floor(self.progress * workflowSteps.length));
         setPhase(p);
       },
     });
+
     return () => trigger.kill();
   }, []);
 
   return (
-    <div ref={outerRef} className="relative" style={{ height: `${(workflowSteps.length + 1) * 100}vh` }}>
-      <div className="sticky top-0 flex h-screen overflow-hidden bg-[#050505]">
-        <div className="relative min-w-0 flex-1 overflow-hidden">
-          <PhaseCanvas phase={phase} />
-        </div>
-        <div className="w-px flex-none bg-white/[0.055]" />
-        <div className="relative w-[42%] overflow-hidden bg-[#050505] xl:w-[38%]">
-          <PhaseTextPanel phase={phase} />
-        </div>
+    <div ref={pinnedRef} className="flex h-screen bg-[#050505]">
+      <div className="relative min-w-0 flex-1 overflow-hidden">
+        <PhaseCanvas phase={phase} />
+      </div>
+      <div className="w-px flex-none bg-white/[0.055]" />
+      <div className="relative w-[42%] overflow-hidden bg-[#050505] xl:w-[38%]">
+        <PhaseTextPanel phase={phase} />
       </div>
     </div>
   );
