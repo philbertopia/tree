@@ -2,6 +2,7 @@ import { ChatbotMockup } from "@/components/visuals/ChatbotMockup";
 import { TerminalPanel } from "@/components/visuals/TerminalPanel";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FloatingNodeClusters } from "@/components/visuals/FloatingNodeClusters";
+import { CTAButton } from "@/components/ui/CTAButton";
 
 export function TerminalChatSection() {
   return (
@@ -17,6 +18,11 @@ export function TerminalChatSection() {
         <div className="grid gap-5 lg:grid-cols-2">
           <TerminalPanel />
           <ChatbotMockup />
+        </div>
+        <div className="mt-8 flex justify-center">
+          <CTAButton href="/demo/ai-systems-planner" variant="secondary">
+            Try Seed
+          </CTAButton>
         </div>
       </div>
     </section>

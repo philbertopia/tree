@@ -16,6 +16,7 @@ const config: Config = {
           line: "#111111",
           green: "#4ade80",
           leaf: "#86efac",
+          cyan: "#67e8f9",
           violet: "#a78bfa"
         }
       },

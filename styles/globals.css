@@ -220,6 +220,104 @@ body {
   overflow: hidden;
 }
 
+.seed-flight-orb {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 999px;
+  opacity: 0;
+  background:
+    radial-gradient(circle at 38% 32%, rgba(255, 255, 255, 0.88) 0 0.36rem, transparent 0.42rem),
+    radial-gradient(circle at 48% 46%, rgba(255, 255, 255, 0.5), transparent 16%),
+    radial-gradient(circle at 50% 50%, rgba(74, 222, 128, 0.98) 0 20%, rgba(74, 222, 128, 0.44) 36%, rgba(103, 232, 249, 0.16) 58%, transparent 72%);
+  box-shadow:
+    0 0 2rem rgba(74, 222, 128, 0.64),
+    0 0 4.5rem rgba(103, 232, 249, 0.36),
+    0 0 7rem rgba(167, 139, 250, 0.18);
+  filter: saturate(1.08);
+  will-change: transform, opacity, filter;
+}
+
+.seed-flight-orb-core,
+.seed-flight-orb-highlight {
+  position: absolute;
+  inset: -42%;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(74, 222, 128, 0.28), transparent 56%);
+  animation: seed-flight-orb-breathe 1600ms ease-in-out infinite;
+}
+
+.seed-flight-orb-highlight {
+  inset: -72%;
+  background: radial-gradient(circle, rgba(103, 232, 249, 0.18), transparent 58%);
+  animation-duration: 2200ms;
+  animation-delay: -500ms;
+}
+
+.seed-flight-orb::before,
+.seed-flight-orb::after {
+  content: "";
+  position: absolute;
+  inset: 12%;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(74, 222, 128, 0.24), transparent 58%);
+  opacity: 0;
+  animation: seed-orb-settle 4200ms ease-out both;
+}
+
+.seed-flight-orb::after {
+  inset: 26%;
+  background: radial-gradient(circle, rgba(167, 139, 250, 0.2), transparent 62%);
+  animation-delay: 90ms;
+}
+
+@keyframes seed-flight-orb-breathe {
+  0%,
+  100% {
+    scale: 0.92;
+    opacity: 0.62;
+  }
+
+  50% {
+    scale: 1.18;
+    opacity: 1;
+  }
+}
+
+@keyframes seed-orb-settle {
+  0%,
+  78% {
+    scale: 0.2;
+    opacity: 0;
+  }
+
+  91% {
+    scale: 1.35;
+    opacity: 0.3;
+  }
+
+  100% {
+    scale: 2;
+    opacity: 0;
+  }
+}
+
+@keyframes seed-widget-arrive {
+  from {
+    opacity: 0;
+    translate: 0 0.9rem;
+    scale: 0.985;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
+}
+
 .image-node-glint::before,
 .image-node-glint::after {
   content: "";
@@ -947,11 +1045,18 @@ body {
   .floating-node-cluster,
   .floating-node-cluster i,
   .image-node-glint::before,
-  .image-node-glint::after {
+  .image-node-glint::after,
+  .seed-flight-orb,
+  .seed-flight-orb::before,
+  .seed-flight-orb::after {
     animation: none !important;
   }
 
   .floating-node-cluster {
     opacity: 0.42;
+  }
+
+  .seed-flight-orb {
+    display: none;
   }
 }

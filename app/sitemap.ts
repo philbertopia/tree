@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/newsletter",
     "/llms.txt",
     "/process",
+    "/demo/ai-systems-planner",
     "/case-studies/hylander-mobile"
   ];
 

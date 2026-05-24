@@ -33,6 +33,9 @@ export function Footer() {
             <Link href="/process" className="transition hover:text-tree-green">
               Process
             </Link>
+            <Link href="/demo/ai-systems-planner" className="transition hover:text-tree-green">
+              AI Systems Planner
+            </Link>
             <Link href="/case-studies/hylander-mobile" className="transition hover:text-tree-green">
               Hylander Case Study
             </Link>

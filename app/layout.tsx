@@ -6,6 +6,7 @@ import { CursorGlow } from "@/components/ui/CursorGlow";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { siteUrl } from "@/lib/seo-content";
+import { SeedWidget } from "@/components/assistant/SeedWidget";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://treesystems.ai"),
@@ -92,6 +93,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <CursorGlow />
         <Navbar />
         {children}
+        <SeedWidget />
         <Footer />
       </body>
     </html>
