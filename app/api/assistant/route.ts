@@ -1,4 +1,11 @@
 import { NextResponse } from "next/server";
+import {
+  getClientIp,
+  rateLimit,
+  rateLimitResponse,
+  readLimitedJson,
+  RequestBodyTooLargeError
+} from "@/lib/server-security";
 
 type AssistantMode = "planner" | "widget" | "plan";
 
@@ -21,10 +28,17 @@ const modePrompts: Record<AssistantMode, string> = {
 
 export async function POST(request: Request) {
   try {
-    const body = (await request.json()) as {
+    const ip = getClientIp(request);
+    const limit = rateLimit({ key: `assistant:${ip}`, limit: 12, windowMs: 60_000 });
+
+    if (!limit.allowed) {
+      return rateLimitResponse(limit.resetAt);
+    }
+
+    const body = await readLimitedJson<{
       mode?: AssistantMode;
       messages?: ClientMessage[];
-    };
+    }>(request, 24_000);
 
     const mode = body.mode && modePrompts[body.mode] ? body.mode : "planner";
     const messages = sanitizeMessages(body.messages);
@@ -92,6 +106,14 @@ export async function POST(request: Request) {
       usage: data?.usage ?? null
     });
   } catch (error) {
+    if (error instanceof RequestBodyTooLargeError) {
+      return NextResponse.json({ ok: false, error: "Request is too large." }, { status: 413 });
+    }
+
+    if (error instanceof SyntaxError) {
+      return NextResponse.json({ ok: false, error: "Invalid JSON request." }, { status: 400 });
+    }
+
     console.error("[Seed assistant] Unexpected error:", error);
     return NextResponse.json(
       { ok: false, error: "Seed hit an unexpected issue. Please try again." },

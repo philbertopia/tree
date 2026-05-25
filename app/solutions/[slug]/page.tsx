@@ -10,17 +10,18 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { ConversionCTA } from "@/components/seo/ConversionCTA";
 
 interface SolutionPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export function generateStaticParams() {
   return solutionPages.map((solution) => ({ slug: solution.slug }));
 }
 
-export function generateMetadata({ params }: SolutionPageProps): Metadata {
-  const solution = getSolutionPage(params.slug);
+export async function generateMetadata({ params }: SolutionPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const solution = getSolutionPage(slug);
   if (!solution) return {};
 
   return {
@@ -38,8 +39,9 @@ export function generateMetadata({ params }: SolutionPageProps): Metadata {
   };
 }
 
-export default function SolutionDetailPage({ params }: SolutionPageProps) {
-  const solution = getSolutionPage(params.slug);
+export default async function SolutionDetailPage({ params }: SolutionPageProps) {
+  const { slug } = await params;
+  const solution = getSolutionPage(slug);
   if (!solution) notFound();
 
   const serviceSchema = {

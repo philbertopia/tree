@@ -14,7 +14,7 @@ import { ServicePackages } from "@/components/sections/ServicePackages";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { TerminalChatSection } from "@/components/sections/TerminalChatSection";
 import { Testimonials } from "@/components/sections/Testimonials";
-import { ToolsConstellation } from "@/components/sections/ToolsConstellation";
+import { ToolsConstellationMount } from "@/components/sections/ToolsConstellationMount";
 import { TrainingSection } from "@/components/sections/TrainingSection";
 import { TrustTicker } from "@/components/sections/TrustTicker";
 import { WhoThisIsFor } from "@/components/sections/WhoThisIsFor";
@@ -43,7 +43,7 @@ export default function HomePage() {
       <AIAgentsSection />
 
       {/* Tools */}
-      <ToolsConstellation />
+      <ToolsConstellationMount />
       <SectionCTA
         eyebrow="Tools into systems"
         title="Not sure which tools belong in your workflow?"
