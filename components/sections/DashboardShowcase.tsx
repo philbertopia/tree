@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef } from "react";
+import { type ReactNode, useRef } from "react";
 import { Bar, BarChart, Cell, Line, LineChart, RadialBar, RadialBarChart, ResponsiveContainer, Tooltip, XAxis } from "recharts";
-import { Activity, Banknote, BriefcaseBusiness, CheckCircle2, HeartPulse, ShieldAlert } from "lucide-react";
+import { Activity, Banknote, BriefcaseBusiness, CheckCircle2, HeartPulse, ShieldAlert, type LucideIcon } from "lucide-react";
 import { dashboardData } from "@/lib/data";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -112,8 +112,8 @@ function MetricCard({
 }: {
   title: string;
   metric: string;
-  icon: React.ElementType;
-  children: React.ReactNode;
+  icon: LucideIcon;
+  children: ReactNode;
 }) {
   return (
     <GlassCard data-gsap="card" className="md:min-h-[260px] hover:-translate-y-1 hover:border-tree-green/40 hover:shadow-[0_12px_32px_rgba(74,222,128,0.08)]">

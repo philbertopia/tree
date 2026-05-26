@@ -32,7 +32,7 @@ export function usePrefersReducedMotion() {
   return reducedMotion;
 }
 
-export function useGsapReveal(rootRef: RefObject<HTMLElement>, options: UseGsapRevealOptions = {}) {
+export function useGsapReveal(rootRef: RefObject<HTMLElement | null>, options: UseGsapRevealOptions = {}) {
   const reducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
