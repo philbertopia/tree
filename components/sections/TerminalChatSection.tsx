@@ -21,7 +21,7 @@ export function TerminalChatSection() {
         </div>
         <div className="mt-8 flex justify-center">
           <CTAButton href="/demo/ai-systems-planner" variant="secondary">
-            Try Seed
+            Take the 5-minute AI readiness audit
           </CTAButton>
         </div>
       </div>

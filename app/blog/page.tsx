@@ -7,13 +7,13 @@ import { JsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
   title: "AI Systems Blog",
-  description: "Practical guides on supervised AI agents, business automation, dashboards, AI training, and human-reviewed workflows.",
+  description: "Practical guides on supervised AI agents, business automation, dashboards, AI education, and human-reviewed workflows.",
   alternates: {
     canonical: "/blog"
   },
   openGraph: {
     title: "TREE AI Systems Blog",
-    description: "Practical guides on supervised AI agents, business automation, dashboards, AI training, and human-reviewed workflows.",
+    description: "Practical guides on supervised AI agents, business automation, dashboards, AI education, and human-reviewed workflows.",
     url: "/blog",
     images: ["/images/social/og-image.png"]
   }

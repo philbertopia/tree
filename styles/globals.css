@@ -220,6 +220,171 @@ body {
   overflow: hidden;
 }
 
+.tree-hero-cinematic {
+  background: #050505;
+  transform: translateZ(0);
+}
+
+.tree-hero-frame {
+  opacity: 0;
+  filter: saturate(1.05) contrast(1.03);
+  will-change: opacity, transform, filter;
+}
+
+.tree-hero-growth-frame {
+  animation-duration: 11.2s;
+  animation-fill-mode: both;
+  animation-timing-function: ease-in-out;
+}
+
+.tree-hero-growth-1 {
+  animation-name: tree-hero-growth-1;
+}
+
+.tree-hero-growth-2 {
+  animation-name: tree-hero-growth-2;
+}
+
+.tree-hero-growth-3 {
+  animation-name: tree-hero-growth-3;
+}
+
+.tree-hero-growth-4 {
+  animation-name: tree-hero-growth-4;
+}
+
+.tree-hero-mature-loop {
+  opacity: 0;
+  animation: tree-hero-mature-reveal 11.2s ease-in-out both;
+}
+
+.tree-hero-mature-a {
+  opacity: 0.96;
+  animation: tree-hero-breathe-a 8.4s ease-in-out infinite;
+}
+
+.tree-hero-mature-b {
+  opacity: 0.18;
+  animation: tree-hero-breathe-b 8.4s ease-in-out infinite;
+}
+
+@keyframes tree-hero-growth-1 {
+  0% {
+    opacity: 0;
+    transform: scale(1.018);
+    filter: saturate(0.95) contrast(1.02) brightness(0.86);
+  }
+
+  6%,
+  24% {
+    opacity: 0.96;
+    transform: scale(1.012);
+  }
+
+  34%,
+  100% {
+    opacity: 0;
+    transform: scale(1.006);
+  }
+}
+
+@keyframes tree-hero-growth-2 {
+  0%,
+  18% {
+    opacity: 0;
+    transform: scale(1.014);
+  }
+
+  30%,
+  43% {
+    opacity: 0.96;
+    transform: scale(1.008);
+  }
+
+  54%,
+  100% {
+    opacity: 0;
+    transform: scale(1.004);
+  }
+}
+
+@keyframes tree-hero-growth-3 {
+  0%,
+  39% {
+    opacity: 0;
+    transform: scale(1.01);
+  }
+
+  52%,
+  64% {
+    opacity: 0.96;
+    transform: scale(1.005);
+  }
+
+  76%,
+  100% {
+    opacity: 0;
+    transform: scale(1.002);
+  }
+}
+
+@keyframes tree-hero-growth-4 {
+  0%,
+  58% {
+    opacity: 0;
+    transform: scale(1.006);
+  }
+
+  72%,
+  94% {
+    opacity: 0.96;
+    transform: scale(1.002);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+@keyframes tree-hero-mature-reveal {
+  0%,
+  78% {
+    opacity: 0;
+  }
+
+  93%,
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes tree-hero-breathe-a {
+  0%,
+  100% {
+    opacity: 0.96;
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+
+  50% {
+    opacity: 0.62;
+    transform: scale(1.004) translate3d(0.12rem, -0.08rem, 0);
+  }
+}
+
+@keyframes tree-hero-breathe-b {
+  0%,
+  100% {
+    opacity: 0.18;
+    transform: scale(1.002) translate3d(-0.08rem, 0.04rem, 0);
+  }
+
+  50% {
+    opacity: 0.74;
+    transform: scale(1.006) translate3d(0.1rem, -0.1rem, 0);
+  }
+}
+
 .seed-flight-orb {
   position: fixed;
   left: 0;
@@ -1046,6 +1211,10 @@ body {
   .floating-node-cluster i,
   .image-node-glint::before,
   .image-node-glint::after,
+  .tree-hero-growth-frame,
+  .tree-hero-mature-loop,
+  .tree-hero-mature-a,
+  .tree-hero-mature-b,
   .seed-flight-orb,
   .seed-flight-orb::before,
   .seed-flight-orb::after {
@@ -1058,5 +1227,15 @@ body {
 
   .seed-flight-orb {
     display: none;
+  }
+
+  .tree-hero-mature-loop,
+  .tree-hero-mature-a {
+    opacity: 1;
+  }
+
+  .tree-hero-mature-b,
+  .tree-hero-growth-frame {
+    opacity: 0;
   }
 }

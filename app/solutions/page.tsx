@@ -7,13 +7,13 @@ import { JsonLd } from "@/components/seo/JsonLd";
 
 export const metadata: Metadata = {
   title: "AI Automation Solutions",
-  description: "TREE solutions for AI agent orchestration, dashboards, business automation, AI training, and human-reviewed workflows.",
+  description: "TREE solutions for AI agent orchestration, dashboards, business automation, AI education, and human-reviewed workflows.",
   alternates: {
     canonical: "/solutions"
   },
   openGraph: {
     title: "TREE AI Automation Solutions",
-    description: "TREE solutions for AI agent orchestration, dashboards, business automation, AI training, and human-reviewed workflows.",
+    description: "TREE solutions for AI agent orchestration, dashboards, business automation, AI education, and human-reviewed workflows.",
     url: "/solutions",
     images: ["/images/social/og-image.png"]
   }
@@ -37,7 +37,7 @@ export default function SolutionsPage() {
           Supervised AI systems for real business workflows.
         </h1>
         <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-400">
-          TREE builds agent systems, dashboards, automations, and training around the work your team actually needs to run.
+          TREE builds agent systems, dashboards, automations, and education around the work your team actually needs to run.
         </p>
 
         <div className="mt-12 grid gap-5 md:grid-cols-2">

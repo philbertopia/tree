@@ -143,7 +143,7 @@ export default async function SolutionDetailPage({ params }: SolutionPageProps) 
           <ConversionCTA
             title="Map this to your business"
             description="TREE can help decide where the workflow should start, where human review belongs, and what the smallest useful version should include."
-            cta={solution.slug === "ai-dashboard-systems" ? "Build a dashboard" : solution.slug === "ai-training-for-teams" ? "Train my team" : solution.slug === "human-review-ai-workflows" ? "Review my AI setup" : "Map my first automation"}
+            cta={solution.slug === "ai-dashboard-systems" ? "Build a dashboard" : solution.slug === "ai-training-for-teams" ? "Educate my team" : solution.slug === "human-review-ai-workflows" ? "Review my AI setup" : "Map my first automation"}
           />
         </div>
       </section>

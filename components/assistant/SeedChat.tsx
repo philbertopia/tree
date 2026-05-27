@@ -104,7 +104,7 @@ export function SeedChat({
   return (
     <div
       className={cn(
-        "relative overflow-hidden border border-white/10 bg-[#070b0a]/90 shadow-2xl shadow-black/45 backdrop-blur-xl",
+        "relative flex min-h-0 flex-col overflow-hidden border border-white/10 bg-[#070b0a]/90 shadow-2xl shadow-black/45 backdrop-blur-xl",
         isPage ? "rounded-[1.75rem]" : "rounded-2xl",
         className
       )}
@@ -133,7 +133,7 @@ export function SeedChat({
         ref={messagesRef}
         className={cn(
           "space-y-4 overflow-y-auto px-4 py-5 scrollbar-thin",
-          isPage ? "h-[32rem] sm:px-5" : "h-[20rem]"
+          isPage ? "min-h-[18rem] flex-1 sm:px-5" : "h-[20rem]"
         )}
       >
         {messages.map((message) => (
@@ -171,7 +171,7 @@ export function SeedChat({
               type="button"
               onClick={() => sendMessage(prompt.prompt)}
               disabled={loading || planLoading}
-              className="rounded-full border border-white/10 bg-white/[0.035] px-3 py-1.5 text-xs font-semibold text-gray-300 transition hover:border-tree-green/35 hover:text-white disabled:cursor-not-allowed disabled:opacity-50"
+              className="rounded-full border border-white/10 bg-white/[0.035] px-3 py-1.5 text-xs font-semibold leading-none text-gray-300 transition hover:border-tree-green/35 hover:text-white disabled:cursor-not-allowed disabled:opacity-50"
             >
               {prompt.label}
             </button>

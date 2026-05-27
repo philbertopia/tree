@@ -64,12 +64,6 @@ export interface ToolItem {
   category: string;
 }
 
-export interface Testimonial {
-  quote: string;
-  name: string;
-  role: string;
-}
-
 export interface ServicePackage {
   title: string;
   description: string;
@@ -100,7 +94,7 @@ export const navItems: NavItem[] = [
   { label: "Solutions", href: "/solutions" },
   { label: "Industries", href: "/#industries" },
   { label: "Tools", href: "/#tools" },
-  { label: "Training", href: "/#training" },
+  { label: "Education", href: "/#training" },
   { label: "Blog", href: "/blog" },
   { label: "About", href: "/about" }
 ];
@@ -114,7 +108,7 @@ export const trustItems = [
   "Finance",
   "Social Media",
   "Blockchain",
-  "Training",
+  "Education",
   "LLMs"
 ];
 
@@ -124,7 +118,7 @@ export const workflowSteps: WorkflowStep[] = [
   { title: "Tool Selection", description: "We choose only the systems that fit the job." },
   { title: "System Design", description: "Interfaces, approvals, prompts, and safeguards are planned together." },
   { title: "Automation Build", description: "Agents, dashboards, content engines, and workflows come online." },
-  { title: "Human Training", description: "Your team learns how to use, review, and improve the system." },
+  { title: "Human Education", description: "Your team learns how to use, review, and improve the system." },
   { title: "Optimization", description: "The system keeps growing as the business changes." }
 ];
 
@@ -141,7 +135,7 @@ export const services: FeatureCard[] = [
   { title: "Financial Automation", description: "Reporting, reconciliation, and alert systems.", icon: Banknote, tone: "violet" },
   { title: "Investment Research Automation", description: "Data aggregation, signal processing, and research agents.", icon: LineChart, tone: "violet" },
   { title: "Blockchain Development", description: "Smart contracts, wallet integrations, and on-chain tooling.", icon: WalletCards, tone: "violet" },
-  { title: "AI Training & Vibe Coding", description: "Learn to use AI tools safely and practically.", icon: GraduationCap, tone: "violet" },
+  { title: "Education & Rapid Prototyping", description: "Learn to use AI tools safely and practically.", icon: GraduationCap, tone: "violet" },
   { title: "Local LLM Setup", description: "Private AI workflows that can run close to your data.", icon: LockKeyhole, tone: "violet" },
   { title: "Custom Business Tools", description: "Bespoke internal apps built around how your team works.", icon: Wrench, tone: "violet" }
 ];
@@ -177,7 +171,7 @@ export const servicePackages: ServicePackage[] = [
     tone: "violet"
   },
   {
-    title: "Training Program",
+    title: "Education Program",
     description: "Teach owners, teams, and individuals how to use, review, prompt, and safely improve the AI systems around them.",
     audience: "People who want confidence without becoming programmers",
     price: "Custom scope",
@@ -233,7 +227,7 @@ export const caseStudyCards: CaseStudyCard[] = [
     tone: "violet"
   },
   {
-    title: "AI training and consultation system",
+    title: "AI education and consultation system",
     problem: "A business owner or individual wants AI help but does not know what to trust, what to automate, or how to safely use the tools.",
     system: "TREE provides consultation, builds a practical starter system, and trains the person on prompting, review, guardrails, and safe changes.",
     outcome: "The client learns only what they need to operate and improve their system, with confidence about when to approve, pause, or override it.",
@@ -322,27 +316,6 @@ export const trainingItems = [
   "Practical consultation for choosing where AI belongs and where it does not",
   "Team handoff so the system can keep improving after launch"
 ].map((description) => ({ description, icon: CheckCircle2 }));
-
-export const testimonials: Testimonial[] = [
-  {
-    quote:
-      "TREE set up our social automation and local SEO system in two weeks. The training was just as valuable as the build.",
-    name: "Owner",
-    role: "Hylander Mobile Food Cart"
-  },
-  {
-    quote:
-      "AI, automation, security, and finance systems need clear visibility, strong review points, and practical implementation.",
-    name: "Client Work",
-    role: "Chase Bank"
-  },
-  {
-    quote:
-      "TREE supports financial and business development workflows with consultation, training, dashboards, and automation planning.",
-    name: "Client Work",
-    role: "Northwestern Mutual"
-  }
-];
 
 export const businessTypes = [
   "Food Truck",

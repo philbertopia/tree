@@ -126,6 +126,24 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   </p>
                 ))}
               </div>
+              {section.links?.length ? (
+                <div className="mt-5 flex flex-wrap gap-3">
+                  {section.links.map((link) => {
+                    const external = link.href.startsWith("http");
+                    return (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        target={external ? "_blank" : undefined}
+                        rel={external ? "noopener noreferrer" : undefined}
+                        className="inline-flex rounded-full border border-tree-green/25 bg-tree-green/10 px-4 py-2 text-sm font-bold text-tree-green transition hover:bg-tree-green hover:text-black"
+                      >
+                        {link.label}
+                      </Link>
+                    );
+                  })}
+                </div>
+              ) : null}
             </section>
           ))}
         </div>
@@ -195,8 +213,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
         <GlassCard className="mt-12">
           <p className="text-xs font-bold uppercase tracking-[0.25em] text-tree-green/70">Written by TREE Systems</p>
-          <h2 className="mt-3 text-2xl font-black text-white">Practical AI implementation, dashboards, automation, and training.</h2>
-          <p className="mt-3 leading-7 text-gray-400">TREE writes from implementation work: scoped systems, human review, operational dashboards, training, and business workflows that need to stay understandable.</p>
+          <h2 className="mt-3 text-2xl font-black text-white">Practical AI implementation, dashboards, automation, and education.</h2>
+          <p className="mt-3 leading-7 text-gray-400">TREE writes from implementation work: scoped systems, human review, operational dashboards, education, and business workflows that need to stay understandable.</p>
         </GlassCard>
 
         <div className="mt-12">
@@ -252,6 +270,10 @@ function getWorkflowExample(category: string) {
     "Small Business": {
       title: "A local business operating rhythm",
       body: "Reviews, QR campaigns, menu updates, customer FAQs, content drafts, and weekly planning tasks move into a calmer owner-approved workflow."
+    },
+    "Case Study": {
+      title: "A lean local business system",
+      body: "TREE starts with the owner's real workflow, builds the smallest useful system, keeps infrastructure costs low, and teaches the business how to operate the tool after launch."
     },
     Training: {
       title: "A system ownership handoff",

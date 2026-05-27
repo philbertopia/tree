@@ -9,13 +9,13 @@ import { siteUrl } from "@/lib/seo-content";
 export const metadata: Metadata = {
   title: "TREE Process",
   description:
-    "How TREE works after you reach out: discovery, workflow audit, system map, build, human review setup, training, and optimization.",
+    "How TREE works after you reach out: discovery, workflow audit, system map, build, human review setup, education, and optimization.",
   alternates: {
     canonical: "/process"
   },
   openGraph: {
     title: "TREE Process",
-    description: "A practical implementation process for supervised AI systems, dashboards, automation, and training.",
+    description: "A practical implementation process for supervised AI systems, dashboards, automation, and education.",
     url: "/process"
   }
 };
@@ -51,7 +51,7 @@ export default function ProcessPage() {
           What happens after you contact TREE.
         </h1>
         <p className="mt-6 max-w-3xl text-lg leading-8 text-gray-400">
-          TREE does not start with tools. We start with the business workflow, then design a practical AI system with clear ownership, human review, training, and room to improve.
+          TREE does not start with tools. We start with the business workflow, then design a practical AI system with clear ownership, human review, education, and room to improve.
         </p>
 
         <div className="mt-10 grid gap-4">
@@ -87,7 +87,7 @@ export default function ProcessPage() {
         <div className="mt-12">
           <ConversionCTA
             title="Ready to map the first useful system?"
-            description="TREE will help turn a messy workflow into a scoped build plan with review points, dashboards, training, and practical next steps."
+            description="TREE will help turn a messy workflow into a scoped build plan with review points, dashboards, education, and practical next steps."
             cta="Map my first automation"
           />
         </div>

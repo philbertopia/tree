@@ -23,7 +23,7 @@ export function ContactCTAStrip() {
 
       <div className="container-shell relative z-10 text-center">
         <p data-gsap="heading" className="mb-5 text-xs font-bold uppercase tracking-[0.38em] text-tree-green/80">
-          Free Consultation
+          Free Consultation + Free Starter AI Agent
         </p>
         <h2
           data-gsap="heading"
@@ -33,11 +33,12 @@ export function ContactCTAStrip() {
           Ready to build<br className="hidden sm:block" /> your system?
         </h2>
         <p data-gsap="heading" className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-400">
-          Start with a real conversation. TREE scopes every system around your actual problem - no templates, no guesswork.
+          Start with a real conversation. For a limited time, qualifying businesses can receive a free starter AI agent
+          after their consultation while promotional spots remain.
         </p>
 
         <div data-gsap="cta" className="mt-9">
-          <CTAButton href="/contact">Get a Free Consultation</CTAButton>
+          <CTAButton href="/contact">Claim Free AI Agent</CTAButton>
         </div>
 
         <div className="mx-auto mt-10 max-w-xs">
@@ -52,7 +53,7 @@ export function ContactCTAStrip() {
         </div>
 
         <p data-gsap="pill" className="mt-5 text-sm text-gray-600">
-          We respond within one business day
+          Starter agents include one focused workflow, 500 MB workspace storage, and light testing usage
         </p>
       </div>
     </section>

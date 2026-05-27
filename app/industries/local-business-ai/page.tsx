@@ -9,16 +9,24 @@ import { GlassCard } from "@/components/ui/GlassCard";
 import { siteUrl } from "@/lib/seo-content";
 
 export const metadata: Metadata = {
-  title: "AI Systems For Local Businesses",
+  title: "AI Systems For Local Businesses + Free AI Consultation",
   description:
-    "Practical AI automation, dashboards, QR systems, review workflows, local SEO, and operational planning for local businesses.",
+    "Practical AI automation, dashboards, QR systems, review workflows, local SEO, and operational planning for local businesses. Limited-time free AI consultation and starter AI agent for qualifying businesses.",
+  keywords: [
+    "free AI consultation for local business",
+    "free AI agent for local business",
+    "local business AI automation",
+    "small business AI agent",
+    "Kingston NY AI consulting",
+    "Hudson Valley local business AI"
+  ],
   alternates: {
     canonical: "/industries/local-business-ai"
   },
   openGraph: {
-    title: "AI Systems For Local Businesses",
+    title: "AI Systems For Local Businesses + Free AI Consultation",
     description:
-      "Practical AI systems for local businesses: follow-up, reviews, QR menus, dashboards, inventory planning, local SEO, and owner visibility.",
+      "Practical AI systems for local businesses plus a limited-time free consultation and starter AI agent for qualifying businesses.",
     url: "/industries/local-business-ai"
   }
 };

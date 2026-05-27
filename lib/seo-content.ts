@@ -8,6 +8,10 @@ export interface ContentFaq {
 export interface ContentSection {
   heading: string;
   body: string[];
+  links?: Array<{
+    label: string;
+    href: string;
+  }>;
 }
 
 export interface BlogPost {
@@ -40,6 +44,135 @@ export interface SolutionPage {
 }
 
 export const blogPosts: BlogPost[] = [
+  {
+    slug: "hylander-mobile-local-food-truck-ai-systems-case-study",
+    title: "How TREE Helped Hylander Mobile Build A Lean AI Operating System",
+    description:
+      "A practical case study on building low-cost AI inventory, pricing, menu, delivery, and business development systems for a local Kingston food truck.",
+    category: "Case Study",
+    publishedAt: "2026-05-26",
+    readingTime: "9 min read",
+    answer:
+      "Hylander Mobile shows how AI agency work should happen for local businesses: start with the owner, understand the real operating pressure, build only the tools that fit, keep costs low, and teach the owner how to use the system.",
+    sections: [
+      {
+        heading: "We started with consultation, not tools",
+        body: [
+          "The Hylander Mobile project began with a simple principle: do not sell a local business a pile of software before understanding the business. Hylan, the owner of Hylander Mobile in Uptown Kingston, already had the hard part: food people wanted, local energy, and a real operating rhythm. TREE's first job was to listen.",
+          "We spent time understanding where the pressure actually lived: weekly food purchasing, inventory planning, menu visibility, customer communication, delivery, budget control, and the need to keep more money inside the business instead of handing it to large platforms.",
+          "That discovery step shaped the entire build. The goal was not to make the business look artificially technical. The goal was to create a practical system that helped Hylan prepare for the week, spend more carefully, serve customers better, and keep control of his own operation."
+        ],
+        links: [
+          { label: "Read the Hylander Mobile case study", href: "/case-studies/hylander-mobile" },
+          { label: "Explore TREE consultation", href: "/contact" }
+        ]
+      },
+      {
+        heading: "We built the smallest useful system first",
+        body: [
+          "For many local operators, the right first system is not a complicated agent platform. It is a focused operating tool that saves time or money immediately. For Hylander Mobile, that meant inventory and food purchasing.",
+          "TREE built an inventory tracking tool with AI-assisted planning that helps compare food pricing data from nearby grocery stores and suppliers around Kingston, New York. Instead of making purchasing decisions from memory, scattered notes, or last-minute runs, Hylan can plan the week with more visibility.",
+          "The system helps answer practical questions: what needs to be restocked, what ingredients are getting expensive, what should be prepared before a busy week, and how to keep food quality high while working inside a tighter budget. That is the kind of AI that matters for a local food business: useful, specific, and tied to the owner's real decisions."
+        ],
+        links: [
+          { label: "AI dashboard systems", href: "/solutions/ai-dashboard-systems" },
+          { label: "Business automation", href: "/solutions/business-automation" }
+        ]
+      },
+      {
+        heading: "The stack stayed lean: Vercel, Supabase, and practical web tools",
+        body: [
+          "A major part of the project was cost discipline. Local businesses do not need bloated enterprise software when a focused web system can do the job. Hylander Mobile runs on a lean modern stack: Vercel for the web application and Supabase for the backend.",
+          "That gives the project a low-cost path for hosting, database storage, authentication, and future expansion. It also keeps the system flexible. As the business grows, TREE can continue adding better tools, better dashboards, and better workflows without forcing the owner into a heavy monthly software burden.",
+          "This matters because AI agency work should respect the economics of the client. If a tool saves $200 but costs $400 to maintain, it is not a win. The system should fit the size and stage of the business."
+        ],
+        links: [
+          { label: "Vercel", href: "https://vercel.com/" },
+          { label: "Supabase", href: "https://supabase.com/" },
+          { label: "TREE AI dashboard systems", href: "/solutions/ai-dashboard-systems" }
+        ]
+      },
+      {
+        heading: "We helped create direct customer touchpoints",
+        body: [
+          "Hylander Mobile did not need to become dependent on Grubhub or another delivery marketplace to serve local customers. Those platforms can bring reach, but they can also take fees that local owners and drivers badly need to keep.",
+          "TREE helped shape a direct digital customer path around the Hylander Mobile menu, QR access, Square payments, pickup and delivery workflows, and clear customer communication. The goal was simple: help customers order and engage without handing the whole relationship to a big platform.",
+          "This is not anti-technology. It is pro-local ownership. Technology should help the owner and driver make more money, not quietly drain the margin from the people doing the work."
+        ],
+        links: [
+          { label: "View Hylander Mobile", href: "https://hylander-mobile.vercel.app/#menu" },
+          { label: "Square payments", href: "https://squareup.com/" },
+          { label: "Human review AI workflows", href: "/solutions/human-review-ai-workflows" }
+        ]
+      },
+      {
+        heading: "We taught the owner how to use the system",
+        body: [
+          "A build is not finished when the website goes live. For TREE, implementation includes education. Hylan needed to understand how the system worked, how to use the inventory and planning tools, and how the digital customer touchpoints supported the business.",
+          "This is where many AI projects fail. A consultant builds something impressive, leaves, and the owner is stuck with a tool they do not fully understand. TREE's model is different: build, explain, adjust, and keep improving the system with the person who actually runs the business.",
+          "That education layer makes the system more durable. The owner can make better decisions because the tool is not mysterious. It becomes part of the operating rhythm."
+        ],
+        links: [
+          { label: "TREE education and consultation", href: "/#training" },
+          { label: "AI education for teams", href: "/solutions/ai-training-for-teams" }
+        ]
+      },
+      {
+        heading: "The pitch deck turned operations into a growth story",
+        body: [
+          "Beyond the operating system, TREE also helped Hylander Mobile frame a larger business development story. The Hylander Mobile Delivery Network pitch deck presents the long-term vision: start with food, prove repeatable local demand, then expand into late-night delivery, convenience runs, courier work, and local logistics across Hudson Valley towns.",
+          "The financials page is intentionally framed as illustrative. It gives Hylan a way to think through market-by-market assumptions, revenue potential, service mix, and expansion phases without pretending projections are guarantees.",
+          "That combination matters: operations plus story. A local owner needs tools to run the week, but also a plan for growth, funding conversations, partnerships, and future markets."
+        ],
+        links: [
+          { label: "View the Hylander Mobile Network pitch deck", href: "https://hylander-mobile-network.vercel.app/" },
+          { label: "View illustrative financials", href: "https://hylander-mobile-network.vercel.app/financials.html" },
+          { label: "Business automation services", href: "/solutions/business-automation" }
+        ]
+      },
+      {
+        heading: "The lesson for local business AI",
+        body: [
+          "The Hylander Mobile project is a blueprint for how TREE wants to work with local businesses. Start with the real problem. Build the smallest useful system. Keep upkeep affordable. Teach the owner. Improve over time. Protect the business relationship from unnecessary platform dependency.",
+          "AI should not be another way for big technology companies to swallow local margin. Used well, it can help local owners become more organized, more visible, more resilient, and more independent.",
+          "For Hylander Mobile, that meant inventory visibility, local price comparison, menu infrastructure, direct ordering support, Square payment workflows, a lower-cost web stack, business development consulting, and a pitch deck that helps communicate the bigger vision. That is what practical AI agency work looks like when it is grounded in a real local operation."
+        ],
+        links: [
+          { label: "Map your first automation with TREE", href: "/demo/ai-systems-planner" },
+          { label: "Contact TREE", href: "/contact" },
+          { label: "Local business AI services", href: "/industries/local-business-ai" }
+        ]
+      }
+    ],
+    fits: [
+      "Local businesses that need practical systems before expensive software",
+      "Food trucks, restaurants, shops, and operators with weekly purchasing or inventory pressure",
+      "Owners who want direct customer relationships instead of full dependence on large platforms"
+    ],
+    doesNotFit: [
+      "Businesses looking for generic AI hype without operational work",
+      "Owners who want tools but do not want to participate in the process",
+      "Projects where a simple spreadsheet or existing point-of-sale report already solves the problem"
+    ],
+    faqs: [
+      {
+        question: "What did TREE build for Hylander Mobile?",
+        answer:
+          "TREE helped build a low-cost operating layer around inventory tracking, AI-assisted purchasing visibility, local grocery price comparison, menu infrastructure, QR access, delivery planning, Square payment workflows, and business development."
+      },
+      {
+        question: "Why not just use a big delivery platform?",
+        answer:
+          "Large marketplaces can be useful, but they often take fees and control the customer relationship. Hylander Mobile's direct system helps more value stay with the owner and driver while keeping the customer path simple."
+      },
+      {
+        question: "Can TREE do this for other local businesses?",
+        answer:
+          "Yes. The exact system changes by business, but the process is repeatable: consult first, identify the real bottleneck, build the smallest useful system, teach the owner, and improve the workflow over time."
+      }
+    ],
+    relatedSolutions: ["business-automation", "ai-dashboard-systems", "ai-training-for-teams"]
+  },
   {
     slug: "what-is-a-supervised-ai-agent-system",
     title: "What Is A Supervised AI Agent System?",
@@ -272,13 +405,13 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "ai-training-literacy-vibe-coding-system-ownership",
-    title: "AI Training For Teams: Literacy, Vibe Coding, And System Ownership",
-    description: "How teams can learn enough AI to use systems safely without becoming full-time engineers.",
-    category: "Training",
+    title: "AI Education For Teams: Literacy, Rapid Prototyping, And System Ownership",
+    description: "How teams can learn enough AI to use systems safely, prototype practical tools, and avoid becoming full-time engineers.",
+    category: "Education",
     publishedAt: "2026-05-24",
     readingTime: "5 min read",
     answer:
-      "AI training for teams should focus on three practical skills: understanding what AI can and cannot do, prototyping safely with AI tools, and operating the systems the team depends on.",
+      "AI education for teams should focus on three practical skills: understanding what AI can and cannot do, prototyping safely with natural language AI tools, and operating the systems the team depends on.",
     sections: [
       {
         heading: "AI literacy builds judgment",
@@ -288,26 +421,26 @@ export const blogPosts: BlogPost[] = [
         ]
       },
       {
-        heading: "Vibe coding needs guardrails",
+        heading: "Rapid prototyping needs guardrails",
         body: [
-          "AI coding tools can help teams prototype internal tools, dashboards, and workflow ideas. The useful version includes boundaries: test small, protect data, review outputs, and avoid shipping what no one understands.",
-          "Vibe coding is most valuable when it helps a team think in systems."
+          "AI coding tools can help teams prototype internal tools, dashboards, and workflow ideas from plain-language direction. The useful version includes boundaries: test small, protect data, review outputs, and avoid shipping what no one understands.",
+          "Rapid prototyping is most valuable when it helps a team think in systems."
         ]
       },
       {
         heading: "System ownership keeps the work alive",
         body: [
           "After an AI system launches, someone needs to know how to pause it, review it, update prompts, interpret logs, and request improvements.",
-          "Training makes the system less mysterious and more useful over time."
+          "Education makes the system less mysterious and more useful over time."
         ]
       }
     ],
     fits: ["Owners and teams adopting AI tools", "Businesses receiving a new automation or dashboard", "People who want practical confidence without deep technical training"],
-    doesNotFit: ["Teams looking for generic AI hype sessions", "Workflows without a real business use case", "Groups that need licensed professional training instead of operational AI training"],
+    doesNotFit: ["Teams looking for generic AI hype sessions", "Workflows without a real business use case", "Groups that need licensed professional training instead of operational AI education"],
     faqs: [
       {
-        question: "Does AI training require coding experience?",
-        answer: "No. TREE separates AI literacy, vibe coding, and system ownership so people can learn the level that matches their role."
+        question: "Does AI education require coding experience?",
+        answer: "No. TREE separates AI literacy, rapid prototyping, and system ownership so people can learn the level that matches their role."
       },
       {
         question: "What should a team know before using AI at work?",
@@ -390,22 +523,22 @@ export const solutionPages: SolutionPage[] = [
   },
   {
     slug: "ai-training-for-teams",
-    title: "AI Training For Teams",
-    description: "Practical AI literacy, vibe coding, and system ownership training for owners, teams, and operators.",
+    title: "AI Education For Teams",
+    description: "Practical AI literacy, rapid prototyping, and system ownership education for owners, teams, and operators.",
     eyebrow: "Solution",
     answer:
-      "AI training for teams helps people understand AI limits, use tools safely, prototype workflows with guardrails, and operate the systems their business relies on.",
-    outcomes: ["Clear AI literacy for nontechnical teams", "Safer prompting and review habits", "Vibe coding workflows with guardrails", "System ownership after launch"],
+      "AI education for teams helps people understand AI limits, use tools safely, prototype workflows with guardrails, and operate the systems their business relies on.",
+    outcomes: ["Clear AI literacy for nontechnical teams", "Safer prompting and review habits", "Rapid prototyping workflows with guardrails", "System ownership after launch"],
     workflow: ["Identify the team's actual AI use cases", "Teach safe review and verification habits", "Prototype small workflows where appropriate", "Document operating rules", "Train handoff and ongoing improvement"],
     fits: ["Owners adopting AI", "Teams receiving a new dashboard or automation", "People who need confidence without becoming engineers"],
-    doesNotFit: ["Generic AI keynote requests", "Training with no practical workflow", "Replacing licensed professional judgment"],
+    doesNotFit: ["Generic AI keynote requests", "Education with no practical workflow", "Replacing licensed professional judgment"],
     faqs: [
       {
-        question: "What is vibe coding training?",
-        answer: "It teaches people how to use AI coding tools to prototype internal tools and workflows safely, with review habits and boundaries."
+        question: "What is rapid prototyping with AI?",
+        answer: "It teaches people how to use natural language AI tools to prototype internal tools and workflows safely, with review habits and boundaries."
       },
       {
-        question: "Who should take AI literacy training?",
+        question: "Who should take AI literacy education?",
         answer: "Owners, managers, operators, creators, and team members who need to use or review AI-assisted work."
       }
     ],

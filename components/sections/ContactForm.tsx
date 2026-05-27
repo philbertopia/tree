@@ -50,12 +50,12 @@ export function ContactForm() {
         <SelectField label="Estimated Budget" name="budget" options={budgetRanges} required />
       </div>
       <label className="grid gap-2">
-        <span className="text-sm font-semibold text-white">What do you want to automate?</span>
+        <span className="text-sm font-semibold text-white">What should your free starter AI agent help with?</span>
         <textarea
           name="automation"
           required
           rows={7}
-          placeholder="Describe your biggest time sink, bottleneck, or the thing you wish happened automatically..."
+          placeholder="Describe your biggest time sink, customer question, inventory issue, scheduling bottleneck, or the thing you wish happened automatically..."
           className="rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-white outline-none transition placeholder:text-gray-600 focus:border-tree-green"
         />
       </label>
@@ -70,8 +70,12 @@ export function ContactForm() {
         disabled={status === "loading"}
         className="min-h-12 rounded-full bg-tree-green px-6 py-3 font-bold text-black transition hover:bg-tree-leaf focus:outline-none focus:ring-2 focus:ring-tree-green focus:ring-offset-2 focus:ring-offset-tree-black disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {status === "loading" ? "Sending..." : "Start Growing Your System →"}
+        {status === "loading" ? "Sending..." : "Claim Free AI Agent"}
       </button>
+      <p className="text-center text-xs leading-5 text-gray-600">
+        Free starter AI agent includes one focused workflow, 500 MB workspace storage, and light testing usage for
+        qualifying businesses while promotional spots remain.
+      </p>
     </form>
   );
 }

@@ -147,7 +147,7 @@ const CATEGORY_DETAILS: Record<string, string> = {
   Dashboards: "TREE uses dashboard and charting tools to turn live data into decision surfaces. Dashboards are useful when they make changes, risks, trends, and next actions easier to see at a glance.",
   Design: "TREE uses design tools for interface planning, prototypes, motion, brand consistency, and handoff from concept to build. Design tools help make AI systems feel usable instead of merely technically impressive.",
   Core: "A larger TREE system node representing how individual tools combine into a working business capability. These nodes sit above single products and describe the operating layer TREE designs around them.",
-  Systems: "A larger TREE architecture node for the connected systems that sit above individual tools: model workflows, automations, data flows, interfaces, approvals, monitoring, and training."
+  Systems: "A larger TREE architecture node for the connected systems that sit above individual tools: model workflows, automations, data flows, interfaces, approvals, monitoring, and education."
 };
 
 const SPECIAL_TOOLS: ToolItem[] = [

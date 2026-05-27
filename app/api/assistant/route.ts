@@ -16,12 +16,13 @@ type ClientMessage = {
 
 const NVIDIA_URL = "https://integrate.api.nvidia.com/v1/chat/completions";
 const MODEL = "google/gemma-3n-e2b-it";
+const MODEL_TIMEOUT_MS = 18_000;
 
 const modePrompts: Record<AssistantMode, string> = {
   widget:
     "You are Seed, TREE's friendly website AI assistant. Keep replies brief, warm, and practical. Help visitors identify one useful AI system for their business, then invite them to try the full AI Systems Planner. Ask one question at a time. Avoid hype, fake metrics, guarantees, and emojis.",
   planner:
-    "You are Seed, TREE's AI Systems Planner. You help business owners map practical AI systems, automations, dashboards, training, and human-review workflows. Be grounded, operational, concise, and intelligent. Ask one useful question at a time when details are missing. Recommend TREE-style systems only when they fit: AI receptionist or intake assistant, workflow automation, dashboard system, weekly aggregator, marketing follow-up system, training and ownership system, and human-review approval workflow. Do not overpromise. Do not use emojis.",
+    "You are Seed, TREE's AI Systems Planner. You help business owners map practical AI systems, automations, dashboards, education, and human-review workflows. Be grounded, operational, concise, and intelligent. Ask one useful question at a time when details are missing. Recommend TREE-style systems only when they fit: AI receptionist or intake assistant, workflow automation, dashboard system, weekly aggregator, marketing follow-up system, education and ownership system, and human-review approval workflow. Do not overpromise. Do not use emojis.",
   plan:
     "You are Seed, TREE's AI Systems Planner. Create a structured AI workflow plan from the conversation. Use clear headings: Business Snapshot, Main Bottleneck, Recommended First System, Suggested Automations, Human Review Checkpoints, Dashboard Or Visibility Idea, First Step With TREE. Be specific, practical, and honest. Do not invent metrics or claim implementation has already happened. Do not use emojis."
 };
@@ -57,24 +58,16 @@ export async function POST(request: Request) {
       );
     }
 
-    const response = await fetch(NVIDIA_URL, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        Accept: "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        model: MODEL,
-        messages: [{ role: "system", content: modePrompts[mode] }, ...messages],
-        max_tokens: mode === "plan" ? 760 : mode === "planner" ? 520 : 260,
-        temperature: mode === "plan" ? 0.18 : 0.28,
-        top_p: 0.72,
-        frequency_penalty: 0,
-        presence_penalty: 0,
-        stream: false
-      })
-    });
+    const response = await fetchModel({
+      model: MODEL,
+      messages: [{ role: "system", content: modePrompts[mode] }, ...messages],
+      max_tokens: mode === "plan" ? 760 : mode === "planner" ? 520 : 260,
+      temperature: mode === "plan" ? 0.18 : 0.28,
+      top_p: 0.72,
+      frequency_penalty: 0,
+      presence_penalty: 0,
+      stream: false
+    }, apiKey);
 
     const text = await response.text();
     const data = parseJson(text);
@@ -114,12 +107,50 @@ export async function POST(request: Request) {
       return NextResponse.json({ ok: false, error: "Invalid JSON request." }, { status: 400 });
     }
 
+    if (isModelConnectionError(error)) {
+      console.error("[Seed assistant] Model connection failed:", error);
+      return NextResponse.json(
+        { ok: false, error: "Seed is online, but the AI model is not reachable right now. Please try again in a moment." },
+        { status: 502 }
+      );
+    }
+
     console.error("[Seed assistant] Unexpected error:", error);
     return NextResponse.json(
       { ok: false, error: "Seed hit an unexpected issue. Please try again." },
       { status: 500 }
     );
   }
+}
+
+async function fetchModel(payload: unknown, apiKey: string) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), MODEL_TIMEOUT_MS);
+
+  try {
+    return await fetch(NVIDIA_URL, {
+      method: "POST",
+      signal: controller.signal,
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    });
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+function isModelConnectionError(error: unknown) {
+  if (error instanceof DOMException && error.name === "AbortError") return true;
+  if (!(error instanceof Error)) return false;
+
+  const cause = error.cause;
+  const causeCode = typeof cause === "object" && cause && "code" in cause ? String(cause.code) : "";
+
+  return error.message === "fetch failed" || causeCode.startsWith("UND_ERR_");
 }
 
 function sanitizeMessages(messages: ClientMessage[] | undefined): ClientMessage[] {

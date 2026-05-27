@@ -11,7 +11,14 @@ const HeroTreeCanvas = dynamic(() => import("@/components/visuals/HeroTreeCanvas
   loading: () => <div className="h-full w-full" />
 });
 
-const heroCapabilities = ["Automation", "Dashboards", "AI Training", "Security", "Finance", "Business Development", "Healthcare", "Justice"];
+const heroCapabilities = ["Automation", "Dashboards", "Education", "Security", "Finance", "Business Development", "Healthcare", "Justice"];
+
+const growthFrames = [
+  "/images/sections/hero/hero-fallback-1.png",
+  "/images/sections/hero/hero-fallback-2.png",
+  "/images/sections/hero/hero-fallback-3.png",
+  "/images/sections/hero/hero-fallback-4.png"
+];
 
 export function Hero() {
   const [imgLoaded, setImgLoaded] = useState(false);
@@ -19,19 +26,41 @@ export function Hero() {
   return (
     <section className="relative flex min-h-[96svh] items-center overflow-hidden px-4 pb-20 pt-28 md:min-h-[94svh]">
       <div
-        className="pointer-events-none absolute inset-0"
+        className="tree-hero-cinematic pointer-events-none absolute inset-0"
         style={{ opacity: imgLoaded ? 1 : 0, transition: "opacity 1.6s ease" }}
         aria-hidden="true"
       >
-        <Image
-          src="/images/sections/hero-fallback.png"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-center opacity-95 md:object-[62%_center]"
-          onLoad={() => setImgLoaded(true)}
-        />
+        {growthFrames.map((src, index) => (
+          <Image
+            key={src}
+            src={src}
+            alt=""
+            fill
+            priority={index === 0}
+            sizes="100vw"
+            className={`tree-hero-frame tree-hero-growth-frame tree-hero-growth-${index + 1} object-cover object-center md:object-[62%_center]`}
+            onLoad={() => {
+              if (index === 0) setImgLoaded(true);
+            }}
+          />
+        ))}
+        <div className="tree-hero-mature-loop absolute inset-0">
+          <Image
+            src="/images/sections/hero/hero-fallback.png"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="tree-hero-frame tree-hero-mature-a object-cover object-center md:object-[62%_center]"
+          />
+          <Image
+            src="/images/sections/hero/hero-fallback-5.png"
+            alt=""
+            fill
+            sizes="100vw"
+            className="tree-hero-frame tree-hero-mature-b object-cover object-center md:object-[62%_center]"
+          />
+        </div>
       </div>
       <div
         className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(5,5,5,0.42)_0%,rgba(5,5,5,0.64)_36%,rgba(5,5,5,0.72)_70%,#050505_100%)] md:bg-[linear-gradient(90deg,#050505_0%,rgba(5,5,5,0.9)_24%,rgba(5,5,5,0.52)_49%,rgba(5,5,5,0.2)_72%,rgba(5,5,5,0.62)_100%)]"
@@ -73,7 +102,7 @@ export function Hero() {
             </span>
           </h1>
           <p className="mx-auto mt-7 max-w-[19rem] text-sm leading-7 text-gray-200 [text-shadow:0_0_22px_rgba(0,0,0,0.96)] sm:max-w-2xl sm:text-base md:mx-0 md:text-lg md:leading-8">
-            TREE builds AI automation, dashboards, training programs, and decision systems for businesses and individuals
+            TREE builds AI automation, dashboards, education programs, and decision systems for businesses and individuals
             who want practical results without losing control.
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row md:justify-start">

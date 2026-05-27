@@ -29,7 +29,7 @@ const flow = [
   {
     label: "Result",
     title: "More organized growth",
-    points: ["50% revenue growth within the first 3 months", "Better operational visibility", "More consistent customer engagement", "Systems that could support expansion"]
+    points: ["Reported 50% revenue growth within the first 3 months", "Better operational visibility", "More consistent customer engagement", "Systems that could support expansion"]
   }
 ];
 
@@ -69,9 +69,14 @@ export function HylanderCaseStudy() {
             <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-400">
               Hylander Mobile was already growing with strong product identity, community trust, and ambition in Kingston, NY. TREE helped accelerate that momentum with operational strategy, practical AI systems, workflow automation, marketing support, menu infrastructure, and implementation guidance.
             </p>
-            <Link href="https://hylander-mobile.vercel.app/#menu" target="_blank" rel="noopener noreferrer" className="mt-7 inline-flex rounded-full border border-tree-green/30 bg-tree-green/10 px-5 py-3 text-sm font-bold text-tree-green transition hover:bg-tree-green hover:text-black">
-              View the Hylander Mobile
-            </Link>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link href="https://hylander-mobile.vercel.app/#menu" target="_blank" rel="noopener noreferrer" className="inline-flex rounded-full border border-tree-green/30 bg-tree-green/10 px-5 py-3 text-sm font-bold text-tree-green transition hover:bg-tree-green hover:text-black">
+                View Hylander Mobile
+              </Link>
+              <Link href="https://hylander-mobile-network.vercel.app/" target="_blank" rel="noopener noreferrer" className="inline-flex rounded-full border border-tree-cyan/25 bg-tree-cyan/10 px-5 py-3 text-sm font-bold text-tree-cyan transition hover:border-tree-cyan/45 hover:bg-tree-cyan/15">
+                View Pitch Deck
+              </Link>
+            </div>
           </div>
 
           <GlassCard data-gsap="card" className="relative overflow-hidden p-0">
@@ -102,9 +107,9 @@ export function HylanderCaseStudy() {
               <p className="text-6xl font-black leading-none tracking-tight text-white md:text-8xl">50%</p>
               <ArrowUpRight className="mb-3 h-10 w-10 text-tree-green" aria-hidden="true" />
             </div>
-            <h3 className="mt-5 text-2xl font-black text-white">Revenue growth within the first 3 months.</h3>
+            <h3 className="mt-5 text-2xl font-black text-white">Reported revenue growth within the first 3 months.</h3>
             <p className="mt-4 leading-8 text-gray-400">
-              Presented as an implementation outcome: stronger organization, clearer weekly planning, menu and QR customer touchpoints, better customer engagement, and operational systems that supported growth already underway.
+              Presented as a client-reported business outcome, not a promise of identical results. TREE supported the growth with stronger organization, clearer weekly planning, menu and QR customer touchpoints, better customer engagement, and operational systems around momentum already underway.
             </p>
           </GlassCard>
 

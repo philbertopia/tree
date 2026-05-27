@@ -14,7 +14,7 @@ const packageImages: Record<string, string> = {
   "Automation Build": "/images/sections/automation.png",
   "Dashboard/System Build": "/images/sections/floating-dashboard.png",
   "Security/Finance Systems": "/images/sections/security-finance.png",
-  "Training Program": "/images/sections/vibe-coding.png"
+  "Education Program": "/images/sections/vibe-coding.png"
 };
 
 export function ServicePackages() {

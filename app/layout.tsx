@@ -11,13 +11,20 @@ import { SeedWidgetMount } from "@/components/assistant/SeedWidgetMount";
 export const metadata: Metadata = {
   metadataBase: new URL("https://treesystems.ai"),
   title: {
-    default: "TREE — AI Agency Hudson Valley | Practical AI Systems for Real Businesses",
+    default: "TREE - Free AI Consultation + AI Agents for Local Businesses",
     template: "%s | TREE"
   },
   description:
-    "TREE designs, builds, and teaches custom AI automation systems for businesses. AI agents, LLM workflows, SEO, social automation, blockchain development, and AI training. Hudson Valley based, globally focused.",
+    "TREE offers free AI consultations and limited-time free starter AI agents for qualifying local businesses. Practical AI automation, dashboards, websites, SEO, and education for real business workflows.",
   keywords: [
+    "free AI consultation",
+    "free AI agent for business",
+    "free starter AI agent",
+    "AI agents for local business",
+    "AI consultation for small business",
     "AI agency Hudson Valley",
+    "AI agency Kingston NY",
+    "small business AI consultant",
     "AI automation agency",
     "AI consulting for small business",
     "AI workflow automation",
@@ -28,12 +35,13 @@ export const metadata: Metadata = {
     "AI website management",
     "blockchain AI development",
     "local AI consultant",
-    "vibe coding training",
+    "AI rapid prototyping education",
     "custom AI systems"
   ],
   openGraph: {
-    title: "TREE — Practical AI Systems for Real Businesses",
-    description: "AI without the hype. Human-guided automation, AI agents, websites, SEO, dashboards, and training.",
+    title: "TREE - Free AI Consultation + AI Agents for Local Businesses",
+    description:
+      "Limited-time offer: free consultation and a free starter AI agent for qualifying local businesses while promotional spots remain.",
     type: "website",
     images: [
       {
@@ -46,8 +54,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "TREE — Practical AI Systems for Real Businesses",
-    description: "AI without the hype. Human-guided automation, AI agents, websites, SEO, dashboards, and training.",
+    title: "TREE - Free AI Consultation + Starter AI Agent",
+    description:
+      "Practical AI systems for local businesses. Free consultation and limited-time free starter AI agent for qualifying businesses.",
     images: ["/images/social/og-image.png"]
   },
   icons: {
@@ -77,7 +86,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 addressCountry: "US"
               },
               description:
-                "TREE builds supervised AI agent systems, dashboards, automations, and training for businesses and teams."
+                "TREE builds supervised AI agent systems, dashboards, automations, and education for businesses and teams. For a limited time, qualifying local businesses can receive a free consultation and free starter AI agent.",
+              makesOffer: {
+                "@type": "Offer",
+                name: "Free AI Consultation and Free Starter AI Agent",
+                description:
+                "A limited-time promotional offer for qualifying local businesses: free consultation and a free starter AI agent with one focused workflow, 500 MB workspace storage, basic hosted interface, and light testing usage while promotional spots remain.",
+                availability: "https://schema.org/LimitedAvailability",
+                price: "0",
+                priceCurrency: "USD",
+                url: `${siteUrl}/contact`
+              }
             },
             {
               "@context": "https://schema.org",
@@ -85,7 +104,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               name: "TREE Systems",
               url: siteUrl,
               description:
-                "Practical AI systems, human-guided automation, dashboards, and training for real business workflows."
+                "Practical AI systems, human-guided automation, dashboards, education, free AI consultations, and limited-time starter AI agents for local businesses."
             }
           ]}
         />

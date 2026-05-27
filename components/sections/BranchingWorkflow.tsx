@@ -382,7 +382,7 @@ function MobileLayout() {
           A workflow for deciding what AI should do.
         </h2>
         <p className="mb-12 max-w-xl text-base leading-8 text-gray-400">
-          Every engagement starts with the business problem, then grows into a system with approvals, training, and ongoing optimization.
+          Every engagement starts with the business problem, then grows into a system with approvals, education, and ongoing optimization.
         </p>
         <div className="relative">
           <div className="absolute bottom-4 left-[1.55rem] top-2 w-px bg-gradient-to-b from-tree-green/35 via-tree-green/15 to-transparent" />

@@ -13,10 +13,10 @@ const SeedOrbCanvas = dynamic(() => import("@/components/assistant/SeedOrbCanvas
 });
 
 const sizes = {
-  sm: "h-12 w-12",
-  md: "h-16 w-16",
-  lg: "h-24 w-24",
-  xl: "h-32 w-32"
+  sm: "h-8 w-8",
+  md: "h-12 w-12",
+  lg: "h-20 w-20",
+  xl: "h-28 w-28"
 };
 
 export function SeedOrb({ size = "md", className = "" }: SeedOrbProps) {

@@ -13,16 +13,16 @@ const trainingOffers = [
   {
     label: "AI Literacy",
     image: "/images/sections/literacy.png",
-    alt: "AI literacy and practical training for business teams",
+    alt: "AI literacy and practical education for business teams",
     tone: "text-tree-green/80",
     description: "Understand what AI can do, what it cannot do, and how to review outputs safely."
   },
   {
-    label: "Vibe Coding",
+    label: "Rapid Prototyping",
     image: "/images/sections/vibe-coding.png",
-    alt: "Vibe coding and AI workflow implementation training",
+    alt: "Rapid prototyping and AI workflow implementation education",
     tone: "text-tree-violet/80",
-    description: "Use AI coding tools to prototype workflows, internal tools, content systems, and automations with guardrails."
+    description: "Use natural language AI tools to prototype workflows, internal tools, content systems, and automations with guardrails."
   },
   {
     label: "System Ownership",
@@ -43,7 +43,7 @@ export function TrainingSection() {
       <div className="container-shell relative z-10">
         <div data-gsap="heading">
           <SectionHeading
-            eyebrow="TREE Training &amp; Consultation"
+            eyebrow="TREE Education &amp; Consultation"
             title="You don't need to become a programmer. You only need to know what you need to know to run your system."
             description="TREE doesn't just build and disappear. We train and consult with business owners, teams, and individuals so they can understand the AI systems around them, use them confidently, and know when to approve, pause, edit, or override the automation."
           />
@@ -87,7 +87,7 @@ export function TrainingSection() {
           </GlassCard>
         </div>
         <Link href="/solutions/ai-training-for-teams" data-gsap="cta" className="mt-8 inline-flex rounded-full border border-tree-green/30 bg-tree-green/10 px-5 py-3 text-sm font-bold text-tree-green transition hover:bg-tree-green hover:text-black">
-          Explore AI training for teams
+          Explore AI education for teams
         </Link>
       </div>
     </section>

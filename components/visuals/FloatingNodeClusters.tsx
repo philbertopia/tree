@@ -35,6 +35,14 @@ function seeded(index: number, seed: number, salt: number) {
   return value - Math.floor(value);
 }
 
+function cssNumber(value: number, decimals = 4) {
+  return Number(value.toFixed(decimals)).toString();
+}
+
+function cssUnit(value: number, unit: string, decimals = 4) {
+  return `${cssNumber(value, decimals)}${unit}`;
+}
+
 function getTone(index: number, seed: number): ClusterTone {
   const value = seeded(index, seed, 4);
   if (value > 0.78) return "violet";
@@ -86,15 +94,15 @@ export function FloatingNodeClusters({
         const tone = getTone(clusterIndex, seed);
         const direction = side === "left" ? 1 : -1;
         const style = {
-          "--cluster-top": `${top}%`,
-          "--cluster-left": side === "left" ? `${edge}%` : "auto",
-          "--cluster-right": side === "right" ? `${edge}%` : "auto",
-          "--cluster-scale": scale,
-          "--cluster-duration": `${duration}s`,
-          "--cluster-delay": `${seeded(clusterIndex, seed, 17) * -18}s`,
-          "--cluster-drift-x": `${direction * (1.7 + seeded(clusterIndex, seed, 18) * 4.8)}rem`,
-          "--cluster-drift-y": `${-0.7 - seeded(clusterIndex, seed, 19) * 2.5}rem`,
-          "--cluster-rotate": `${direction * (3 + seeded(clusterIndex, seed, 20) * 8)}deg`
+          "--cluster-top": cssUnit(top, "%"),
+          "--cluster-left": side === "left" ? cssUnit(edge, "%") : "auto",
+          "--cluster-right": side === "right" ? cssUnit(edge, "%") : "auto",
+          "--cluster-scale": cssNumber(scale),
+          "--cluster-duration": cssUnit(duration, "s"),
+          "--cluster-delay": cssUnit(seeded(clusterIndex, seed, 17) * -18, "s"),
+          "--cluster-drift-x": cssUnit(direction * (1.7 + seeded(clusterIndex, seed, 18) * 4.8), "rem"),
+          "--cluster-drift-y": cssUnit(-0.7 - seeded(clusterIndex, seed, 19) * 2.5, "rem"),
+          "--cluster-rotate": cssUnit(direction * (3 + seeded(clusterIndex, seed, 20) * 8), "deg")
         } as CSSProperties;
 
         return (
@@ -103,10 +111,10 @@ export function FloatingNodeClusters({
               const angle = lineIndex * 32 + seeded(clusterIndex + lineIndex, seed, 21) * 36;
               const width = 2.1 + seeded(clusterIndex + lineIndex, seed, 22) * 3.8;
               const lineStyle = {
-                "--line-angle": `${angle}deg`,
-                "--line-width": `${width}rem`,
-                "--line-x": `${-width / 2 + seeded(lineIndex, seed, 23) * width * 0.8}rem`,
-                "--line-y": `${-1.2 + seeded(lineIndex, seed, 24) * 2.4}rem`
+                "--line-angle": cssUnit(angle, "deg"),
+                "--line-width": cssUnit(width, "rem"),
+                "--line-x": cssUnit(-width / 2 + seeded(lineIndex, seed, 23) * width * 0.8, "rem"),
+                "--line-y": cssUnit(-1.2 + seeded(lineIndex, seed, 24) * 2.4, "rem")
               } as CSSProperties;
 
               return <b key={`connector-${lineIndex}`} style={lineStyle} />;
@@ -116,10 +124,10 @@ export function FloatingNodeClusters({
               const radius = 18 + seeded(nodeIndex, seed + clusterIndex, 26) * (size === "large" ? 72 : size === "small" ? 34 : 58);
               const nodeSize = size === "large" ? 0.3 + seeded(nodeIndex, seed, 27) * 0.62 : 0.18 + seeded(nodeIndex, seed, 28) * 0.48;
               const nodeStyle = {
-                "--node-x": `${Math.cos(angle) * radius}px`,
-                "--node-y": `${Math.sin(angle) * radius * (0.58 + seeded(nodeIndex, seed, 29) * 0.34)}px`,
-                "--node-size": `${nodeSize}rem`,
-                "--node-delay": `${(nodeIndex + clusterIndex) * -0.48}s`
+                "--node-x": cssUnit(Math.cos(angle) * radius, "px"),
+                "--node-y": cssUnit(Math.sin(angle) * radius * (0.58 + seeded(nodeIndex, seed, 29) * 0.34), "px"),
+                "--node-size": cssUnit(nodeSize, "rem"),
+                "--node-delay": cssUnit((nodeIndex + clusterIndex) * -0.48, "s")
               } as CSSProperties;
 
               return <i key={`node-${nodeIndex}`} style={nodeStyle} />;

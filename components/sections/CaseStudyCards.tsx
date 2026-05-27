@@ -13,19 +13,19 @@ import { fadeInUp, staggerContainer } from "@/lib/utils";
 const caseImages: Record<string, string> = {
   "Local business visibility system": "/images/sections/local-business.png",
   "Finance/security dashboard system": "/images/sections/security-finance-case-study.png",
-  "AI training and consultation system": "/images/sections/literacy.png",
+  "AI education and consultation system": "/images/sections/literacy.png",
   "Marketing and growth automation system": "/images/sections/marketing.png"
 };
 
 const caseComponents: Record<string, string[]> = {
   "Local business visibility system": ["SEO", "Reviews", "QR Campaigns", "Dashboard"],
   "Finance/security dashboard system": ["Risk Flags", "Camera Events", "Approvals", "Reporting"],
-  "AI training and consultation system": ["Prompting", "Guardrails", "Starter System", "Ownership"],
+  "AI education and consultation system": ["Prompting", "Guardrails", "Starter System", "Ownership"],
   "Marketing and growth automation system": ["CRM", "Content Queue", "Email Flow", "Approvals"]
 };
 
-const proofPoints = ["Human review built in", "Custom scoped systems", "Dashboards and training included"];
-const staticImageCases = new Set(["AI training and consultation system", "Marketing and growth automation system"]);
+const proofPoints = ["Human review built in", "Custom scoped systems", "Dashboards and education included"];
+const staticImageCases = new Set(["AI education and consultation system", "Marketing and growth automation system"]);
 
 export function CaseStudyCards() {
   const sectionRef = useRef<HTMLElement>(null);
